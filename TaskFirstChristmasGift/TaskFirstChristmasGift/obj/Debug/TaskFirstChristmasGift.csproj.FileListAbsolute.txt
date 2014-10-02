@@ -1,2 +1,7 @@
 c:\users\user\documents\visual studio 2012\Projects\TaskFirstChristmasGift\TaskFirstChristmasGift\bin\Debug\TaskFirstChristmasGift.exe.config
 D:\Copy\_epam\epam2014\TaskFirstChristmasGift\TaskFirstChristmasGift\bin\Debug\TaskFirstChristmasGift.exe.config
+D:\Copy\_epam\epam2014\TaskFirstChristmasGift\TaskFirstChristmasGift\bin\Debug\TaskFirstChristmasGift.exe
+D:\Copy\_epam\epam2014\TaskFirstChristmasGift\TaskFirstChristmasGift\bin\Debug\TaskFirstChristmasGift.pdb
+D:\Copy\_epam\epam2014\TaskFirstChristmasGift\TaskFirstChristmasGift\obj\Debug\TaskFirstChristmasGift.csprojResolveAssemblyReference.cache
+D:\Copy\_epam\epam2014\TaskFirstChristmasGift\TaskFirstChristmasGift\obj\Debug\TaskFirstChristmasGift.exe
+D:\Copy\_epam\epam2014\TaskFirstChristmasGift\TaskFirstChristmasGift\obj\Debug\TaskFirstChristmasGift.pdb

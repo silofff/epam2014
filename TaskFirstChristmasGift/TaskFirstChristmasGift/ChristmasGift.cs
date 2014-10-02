@@ -23,9 +23,9 @@ namespace TaskFirstChristmasGift
             _components = _components.OrderBy(component => component.Weight).ToList();
         }
 
-        public List<Component> FindComponentsBySugar(int minSugar, int maxSugar)
+        public List<Candy> FindComponentsBySugar(int minSugar, int maxSugar)
         {
-            return _components.Where(x => x.Sugar < maxSugar && x.Sugar > minSugar).ToList();
+            return _components.OfType<Candy>().Where(x => x.Sugar < maxSugar && x.Sugar > minSugar).ToList();
         }
     }
 }

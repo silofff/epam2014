@@ -13,7 +13,7 @@
         {
             Name = name;
             Weight = weight;
-            costInDollars = costInDollars;
+            CostInDollars = costInDollars;
         }
 
         public abstract string ComponentDescription();

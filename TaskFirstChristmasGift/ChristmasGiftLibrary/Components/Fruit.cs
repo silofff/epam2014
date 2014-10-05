@@ -16,7 +16,8 @@ namespace ChristmasGiftLibrary.Components
 
         public override string ComponentDescription()
         {
-            throw new NotImplementedException();
+            return String.Format("Candy {0} weighs {1} grams, its {2} and cost {3} dollars",
+                Name, Weight, FruitColor, CostInDollars);
         }
     }
 }

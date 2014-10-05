@@ -1,0 +1,5 @@
+D:\Copy\_epam\epam2014\TaskFirstChristmasGift\ChristmasGiftLibrary\bin\Debug\ChristmasGiftLibrary.dll
+D:\Copy\_epam\epam2014\TaskFirstChristmasGift\ChristmasGiftLibrary\bin\Debug\ChristmasGiftLibrary.pdb
+D:\Copy\_epam\epam2014\TaskFirstChristmasGift\ChristmasGiftLibrary\obj\Debug\ChristmasGiftLibrary.csprojResolveAssemblyReference.cache
+D:\Copy\_epam\epam2014\TaskFirstChristmasGift\ChristmasGiftLibrary\obj\Debug\ChristmasGiftLibrary.dll
+D:\Copy\_epam\epam2014\TaskFirstChristmasGift\ChristmasGiftLibrary\obj\Debug\ChristmasGiftLibrary.pdb

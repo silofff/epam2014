@@ -5,3 +5,5 @@ D:\Copy\_epam\epam2014\TaskFirstChristmasGift\TaskFirstChristmasGift\bin\Debug\T
 D:\Copy\_epam\epam2014\TaskFirstChristmasGift\TaskFirstChristmasGift\obj\Debug\TaskFirstChristmasGift.csprojResolveAssemblyReference.cache
 D:\Copy\_epam\epam2014\TaskFirstChristmasGift\TaskFirstChristmasGift\obj\Debug\TaskFirstChristmasGift.exe
 D:\Copy\_epam\epam2014\TaskFirstChristmasGift\TaskFirstChristmasGift\obj\Debug\TaskFirstChristmasGift.pdb
+d:\Copy\_epam\epam2014\TaskFirstChristmasGift\TaskFirstChristmasGift\bin\Debug\ChristmasGiftLibrary.dll
+d:\Copy\_epam\epam2014\TaskFirstChristmasGift\TaskFirstChristmasGift\bin\Debug\ChristmasGiftLibrary.pdb

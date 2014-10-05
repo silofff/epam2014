@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaskFirstChristmasGift.Components;
+﻿using System.Collections.Generic;
+using ChristmasGiftLibrary;
+using ChristmasGiftLibrary.Components;
 
 namespace TaskFirstChristmasGift
 {
@@ -11,7 +8,7 @@ namespace TaskFirstChristmasGift
     {
         static void Main(string[] args)
         {
-            ChristmasGift gift = new ChristmasGift();
+            var gift = new ChristmasGift();
             var lst = new List<Candy>();
             gift.AddComponent(new Candy() { Weight = 5, Sugar = 4 });
             gift.AddComponent(new Candy() { Weight = 6, Sugar = 40 });

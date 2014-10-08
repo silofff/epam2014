@@ -2,6 +2,7 @@
 
 namespace ChristmasGiftLibrary.Components
 {
+    [Serializable]
     public class Fruit : Component
     {
         public string FruitColor { get; set; }

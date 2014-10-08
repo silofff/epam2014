@@ -2,6 +2,7 @@
 
 namespace ChristmasGiftLibrary.Components
 {
+    [Serializable]
     public class Candy : Component
     {
         public int Sugar { get; set; }

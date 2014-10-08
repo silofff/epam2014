@@ -1,5 +1,8 @@
-﻿namespace ChristmasGiftLibrary.Components
+﻿using System;
+
+namespace ChristmasGiftLibrary.Components
 {
+    [Serializable]
     public abstract class Component
     {
         public string Name { get; set; }

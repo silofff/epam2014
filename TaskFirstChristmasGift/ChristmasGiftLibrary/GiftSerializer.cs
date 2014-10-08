@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -17,38 +18,35 @@ namespace ChristmasGiftLibrary
         
         public void SerializeGift(ChristmasGift gift, string giftName)
         {
-            _fs = new FileStream(giftName, FileMode.Create);
             try 
             {
+                _fs = new FileStream(giftName, FileMode.Create);
                 _formatter.Serialize(_fs, gift);
             }
-            catch (SerializationException e)
+            catch (Exception e)
             {
-                Console.WriteLine("Failed to serialize. Reason: " + e.Message);
-                throw;
+                Debug.Fail(e.Message);
             }
             finally
             {
-                _fs.Close();
+                if (_fs != null) _fs.Close();
             }
         }
 
-        public ChristmasGift DeserializeGift(string giftName)
+        public ChristmasGift DeserializeGift(ChristmasGift gift, string giftName)
         {
-            _fs = new FileStream(giftName, FileMode.Open);
-            ChristmasGift gift;
-            try 
+            try
             {
+                _fs = new FileStream(giftName, FileMode.Open);
                 gift = (ChristmasGift) _formatter.Deserialize(_fs);
             }
-            catch (SerializationException e) 
+            catch (Exception e)
             {
-                Console.WriteLine("Failed to deserialize. Reason: " + e.Message);
-                throw;
+                Debug.Fail(e.Message);
             }
             finally 
             {
-                _fs.Close();
+                if (_fs != null) _fs.Close();
             }
             return gift;
         }

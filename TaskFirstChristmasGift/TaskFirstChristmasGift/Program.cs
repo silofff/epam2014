@@ -24,7 +24,7 @@ namespace TaskFirstChristmasGift
 
             foreach (var c in gift2)
             {
-                Console.WriteLine(c.ComponentDescription());
+                if (c != null) Console.WriteLine(c.ComponentDescription());
             }
             Console.ReadKey();
             //lst = gift.FindComponentsBySugar(3, 35);

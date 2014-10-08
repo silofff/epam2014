@@ -1,0 +1,11 @@
+D:\Copy\_epam\epam2014\TaskFirstChristmasGift\ChristmasGiftForms\bin\Debug\ChristmasGiftForms.exe.config
+D:\Copy\_epam\epam2014\TaskFirstChristmasGift\ChristmasGiftForms\bin\Debug\ChristmasGiftForms.exe
+D:\Copy\_epam\epam2014\TaskFirstChristmasGift\ChristmasGiftForms\bin\Debug\ChristmasGiftForms.pdb
+D:\Copy\_epam\epam2014\TaskFirstChristmasGift\ChristmasGiftForms\obj\Debug\ChristmasGiftForms.csprojResolveAssemblyReference.cache
+D:\Copy\_epam\epam2014\TaskFirstChristmasGift\ChristmasGiftForms\obj\Debug\ChristmasGiftForms.ChristmasGiftForm.resources
+D:\Copy\_epam\epam2014\TaskFirstChristmasGift\ChristmasGiftForms\obj\Debug\ChristmasGiftForms.Properties.Resources.resources
+D:\Copy\_epam\epam2014\TaskFirstChristmasGift\ChristmasGiftForms\obj\Debug\ChristmasGiftForms.csproj.GenerateResource.Cache
+D:\Copy\_epam\epam2014\TaskFirstChristmasGift\ChristmasGiftForms\obj\Debug\ChristmasGiftForms.exe
+D:\Copy\_epam\epam2014\TaskFirstChristmasGift\ChristmasGiftForms\obj\Debug\ChristmasGiftForms.pdb
+D:\Copy\_epam\epam2014\TaskFirstChristmasGift\ChristmasGiftForms\bin\Debug\ChristmasGiftLibrary.dll
+D:\Copy\_epam\epam2014\TaskFirstChristmasGift\ChristmasGiftForms\bin\Debug\ChristmasGiftLibrary.pdb

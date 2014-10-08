@@ -7,8 +7,6 @@ namespace ChristmasGiftLibrary.Components
     {
         public string FruitColor { get; set; }
 
-        public Fruit() {}
-
         public Fruit(string name, double weight, string fruitColor, double costInDollars)
             : base(name, weight, costInDollars)
         {

@@ -1,12 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ChristmasGiftForms.Properties;
 using ChristmasGiftLibrary;
@@ -17,7 +10,7 @@ namespace ChristmasGiftForms
     public partial class ChristmasGiftForm : Form
     {
         private ChristmasGift _gift = new ChristmasGift();
-        private AddComponentForm form = new AddComponentForm();
+        private readonly AddComponentForm _form = new AddComponentForm();
 
         public ChristmasGiftForm()
         {
@@ -65,8 +58,8 @@ namespace ChristmasGiftForms
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            form.GiftInitialize(ref _gift);
-            form.Show();
+            _form.GiftInitialize(ref _gift);
+            _form.Show();
         }
 
         private void saveGift_Click(object sender, EventArgs e)

@@ -9,3 +9,4 @@ D:\Copy\_epam\epam2014\TaskFirstChristmasGift\ChristmasGiftForms\obj\Debug\Chris
 D:\Copy\_epam\epam2014\TaskFirstChristmasGift\ChristmasGiftForms\obj\Debug\ChristmasGiftForms.pdb
 D:\Copy\_epam\epam2014\TaskFirstChristmasGift\ChristmasGiftForms\bin\Debug\ChristmasGiftLibrary.dll
 D:\Copy\_epam\epam2014\TaskFirstChristmasGift\ChristmasGiftForms\bin\Debug\ChristmasGiftLibrary.pdb
+D:\Copy\_epam\epam2014\TaskFirstChristmasGift\ChristmasGiftForms\obj\Debug\ChristmasGiftForms.AddComponentForm.resources

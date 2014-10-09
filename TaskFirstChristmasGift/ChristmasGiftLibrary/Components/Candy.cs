@@ -3,9 +3,9 @@
 namespace ChristmasGiftLibrary.Components
 {
     [Serializable]
-    public class Candy : Component
+    public class Candy : Component, ISugar
     {
-        public int Sugar { get; set; }
+        public int Sugar { get; private set; }
         
         public Candy(string name, double weight, int sugar, double costInDollars)
             : base(name, weight, costInDollars)

@@ -10,7 +10,7 @@ namespace ChristmasGiftLibrary
     public class ChristmasGift : IEnumerable<Component>
     {
         private List<Component> _components = new List<Component>();
-        [NonSerialized] private readonly GiftSerializer _giftSerializer = new GiftSerializer();
+        [NonSerialized] private static readonly GiftSerializer GiftSerializer = new GiftSerializer();
         
         public void Add(Component component)
         {
@@ -29,12 +29,12 @@ namespace ChristmasGiftLibrary
 
         public void Save(string giftName)
         {
-            _giftSerializer.SerializeGift(this, giftName);
+            GiftSerializer.SerializeGift(this, giftName);
         }
 
         public void Open(string giftName)
         {
-            _components = _giftSerializer.DeserializeGift(this, giftName)._components;
+            _components = GiftSerializer.DeserializeGift(this, giftName)._components;
         }
 
         public IEnumerator<Component> GetEnumerator()

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using ChristmasGiftLibrary.Components;
 
 namespace ChristmasGiftLibrary
@@ -11,10 +12,17 @@ namespace ChristmasGiftLibrary
     {
         private IList<Component> _components = new List<Component>();
         [NonSerialized] private static readonly GiftSerializer GiftSerializer = new GiftSerializer();
-        
+
+        public double TotalWeight { get; private set; }
+        public double TotalCost { get; private set; }
+        public int TotalSugar { get; private set; }
+
         public void Add(Component component)
         {
             _components.Add(component);
+            TotalWeight += component.Weight;
+            TotalCost += component.Cost;
+            if (component is ISugar) TotalSugar += ((ISugar) component).Sugar;
         }
 
         public void SortGiftByWeight()
@@ -32,9 +40,14 @@ namespace ChristmasGiftLibrary
             GiftSerializer.SerializeGift(this, giftName);
         }
 
-        public void Open(string giftName)
+        public void Load(string giftName)
         {
-            _components = GiftSerializer.DeserializeGift(this, giftName)._components;
+            var loadedGift = GiftSerializer.DeserializeGift(this, giftName);
+            TotalWeight = loadedGift.TotalWeight;
+            TotalCost = loadedGift.TotalCost;
+            TotalSugar = loadedGift.TotalSugar;
+            _components = loadedGift._components;
+
         }
 
         public IEnumerator<Component> GetEnumerator()

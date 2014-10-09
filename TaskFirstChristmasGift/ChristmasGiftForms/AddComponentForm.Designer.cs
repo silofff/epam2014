@@ -141,7 +141,6 @@
             this.MinimizeBox = false;
             this.Name = "AddComponentForm";
             this.Text = "AddComponentForm";
-            this.Load += new System.EventHandler(this.AddComponentForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -7,13 +7,13 @@ namespace ChristmasGiftLibrary.Components
     {
         public string Name { get; private set; }
         public double Weight { get; private set; }
-        public double CostInDollars { get; private set; }
+        public double Cost { get; private set; }
         
-        protected Component(string name, double weight, double costInDollars)
+        protected Component(string name, double weight, double cost)
         {
             Name = name;
             Weight = weight;
-            CostInDollars = costInDollars;
+            Cost = cost;
         }
 
         public abstract string ComponentDescription();

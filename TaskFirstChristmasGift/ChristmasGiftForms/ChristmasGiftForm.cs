@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using ChristmasGiftForms.Properties;
 using ChristmasGiftLibrary;
-using Component = ChristmasGiftLibrary.Components.Component;
 
 namespace ChristmasGiftForms
 {
@@ -33,7 +31,7 @@ namespace ChristmasGiftForms
                 var fileName = openFileDialog.FileName;
 
                 if (fileName == null) return;
-                _gift.Open(fileName);
+                _gift.Load(fileName);
 
                 if (_gift == null) return;
                 WriteInfo(_gift);
@@ -46,7 +44,7 @@ namespace ChristmasGiftForms
             }
         }
 
-        private void WriteInfo(IEnumerable<Component> gift)
+        public void WriteInfo(ChristmasGift gift)
         {
             InfoTextBox.Clear();
             foreach (var c in gift)
@@ -54,12 +52,18 @@ namespace ChristmasGiftForms
                 InfoTextBox.Text += c.ComponentDescription();
                 InfoTextBox.Text += "\n";
             }
+
+            InfoTextBox.Text += "Total Cost: " + gift.TotalCost;
+            InfoTextBox.Text += "\n";
+            InfoTextBox.Text += "Total Weight: " + gift.TotalWeight;
+            InfoTextBox.Text += "\n";
+            InfoTextBox.Text += "Total Sugar: " + gift.TotalSugar;
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
             _form.GiftInitialize(ref _gift);
-            _form.Show();
+            _form.Show(this);
         }
 
         private void saveGift_Click(object sender, EventArgs e)
@@ -84,6 +88,12 @@ namespace ChristmasGiftForms
 
         private void ChristmasGiftForm_Activated(object sender, EventArgs e)
         {
+            WriteInfo(_gift);
+        }
+
+        private void sortButton_Click(object sender, EventArgs e)
+        {
+            _gift.SortGiftByWeight();
             WriteInfo(_gift);
         }
     }

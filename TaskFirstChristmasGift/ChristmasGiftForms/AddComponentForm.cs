@@ -23,19 +23,12 @@ namespace ChristmasGiftForms
             componentBox.Items.Add("Fruit");
             componentBox.SelectedItem = "Candy";
         }
-
-
-
+        
         public void GiftInitialize(ref ChristmasGift gift)
         {
             _gift = gift;
         }
-        
 
-        private void AddComponentForm_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void addCandyButton_Click(object sender, EventArgs e)
         {
@@ -50,7 +43,7 @@ namespace ChristmasGiftForms
                 sugarBox.Text, Double.Parse(costBox.Text)));
                     break;
             }
-
+            
             Close();
         }
 

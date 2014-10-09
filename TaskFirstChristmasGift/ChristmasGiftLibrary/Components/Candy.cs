@@ -7,8 +7,8 @@ namespace ChristmasGiftLibrary.Components
     {
         public int Sugar { get; private set; }
         
-        public Candy(string name, double weight, int sugar, double costInDollars)
-            : base(name, weight, costInDollars)
+        public Candy(string name, double weight, int sugar, double cost)
+            : base(name, weight, cost)
         {
             Sugar = sugar;
         }
@@ -16,7 +16,7 @@ namespace ChristmasGiftLibrary.Components
         public override string ComponentDescription()
         {
             return String.Format("Candy {0} weighs {1} grams, contains {2} sugars and its cost {3} dollars",
-                Name, Weight, Sugar, CostInDollars);
+                Name, Weight, Sugar, Cost);
         }
     }
 }

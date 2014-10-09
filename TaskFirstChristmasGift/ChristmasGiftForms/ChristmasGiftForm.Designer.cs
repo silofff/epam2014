@@ -32,6 +32,7 @@
             this.InfoTextBox = new System.Windows.Forms.RichTextBox();
             this.addButton = new System.Windows.Forms.Button();
             this.saveGift = new System.Windows.Forms.Button();
+            this.sortButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // OpenButton
@@ -41,7 +42,7 @@
             this.OpenButton.Name = "OpenButton";
             this.OpenButton.Size = new System.Drawing.Size(148, 46);
             this.OpenButton.TabIndex = 0;
-            this.OpenButton.Text = "Open File";
+            this.OpenButton.Text = "Load File";
             this.OpenButton.UseVisualStyleBackColor = true;
             this.OpenButton.Click += new System.EventHandler(this.OpenButton_Click);
             // 
@@ -76,12 +77,23 @@
             this.saveGift.UseVisualStyleBackColor = true;
             this.saveGift.Click += new System.EventHandler(this.saveGift_Click);
             // 
+            // sortButton
+            // 
+            this.sortButton.Location = new System.Drawing.Point(12, 219);
+            this.sortButton.Name = "sortButton";
+            this.sortButton.Size = new System.Drawing.Size(148, 45);
+            this.sortButton.TabIndex = 4;
+            this.sortButton.Text = "Sort By Weight";
+            this.sortButton.UseVisualStyleBackColor = true;
+            this.sortButton.Click += new System.EventHandler(this.sortButton_Click);
+            // 
             // ChristmasGiftForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(536, 325);
+            this.Controls.Add(this.sortButton);
             this.Controls.Add(this.saveGift);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.InfoTextBox);
@@ -100,6 +112,7 @@
         private System.Windows.Forms.RichTextBox InfoTextBox;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button saveGift;
+        private System.Windows.Forms.Button sortButton;
     }
 }
 

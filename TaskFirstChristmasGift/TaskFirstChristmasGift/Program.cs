@@ -20,7 +20,7 @@ namespace TaskFirstChristmasGift
 
             gift.Save("gift3");
             var gift2 = new ChristmasGift();
-            gift2.Open("gift3");
+            gift2.Load("gift3");
 
             foreach (var c in gift2)
             {

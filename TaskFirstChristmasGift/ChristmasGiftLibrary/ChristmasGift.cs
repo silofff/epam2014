@@ -9,7 +9,7 @@ namespace ChristmasGiftLibrary
     [Serializable]
     public class ChristmasGift : IEnumerable<Component>
     {
-        private List<Component> _components = new List<Component>();
+        private IList<Component> _components = new List<Component>();
         [NonSerialized] private static readonly GiftSerializer GiftSerializer = new GiftSerializer();
         
         public void Add(Component component)
@@ -22,9 +22,9 @@ namespace ChristmasGiftLibrary
             _components = _components.OrderBy(component => component.Weight).ToList();
         }
 
-        public List<Candy> FindComponentsBySugar(int minSugar, int maxSugar)
+        public IEnumerable<Component> FindComponentsBySugar(int minSugar, int maxSugar)
         {
-            return _components.OfType<Candy>().Where(x => x.Sugar < maxSugar && x.Sugar > minSugar).ToList();
+            return _components.Where(x => x is ISugar).Where(x => ((ISugar)x).Sugar < maxSugar && ((ISugar)x).Sugar > minSugar);
         }
 
         public void Save(string giftName)

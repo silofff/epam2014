@@ -5,7 +5,7 @@ namespace ChristmasGiftLibrary.Components
     [Serializable]
     public class Fruit : Component
     {
-        public string FruitColor { get; set; }
+        public string FruitColor { get; private set; }
 
         public Fruit(string name, double weight, string fruitColor, double costInDollars)
             : base(name, weight, costInDollars)

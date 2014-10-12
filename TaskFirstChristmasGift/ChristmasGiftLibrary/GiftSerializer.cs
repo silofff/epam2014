@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
@@ -23,7 +22,6 @@ namespace ChristmasGiftLibrary
             }
             finally
             {
-                //if (_fs != null) 
                 _fs.Close();
             }
         }
@@ -41,7 +39,6 @@ namespace ChristmasGiftLibrary
             }
             finally 
             {
-                //if (_fs != null) 
                 _fs.Close();
             }
             return gift;

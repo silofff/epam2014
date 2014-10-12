@@ -18,9 +18,24 @@ namespace TaskFirstChristmasGift
 
             gift.SortGiftByWeight();
 
-            gift.Save("gift3");
+            try
+            {
+                gift.Save("gift3");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
             var gift2 = new ChristmasGift();
-            gift2.Load("gift3");
+            try
+            {
+                gift2.Load("gift3");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            
 
             foreach (var c in gift2)
             {

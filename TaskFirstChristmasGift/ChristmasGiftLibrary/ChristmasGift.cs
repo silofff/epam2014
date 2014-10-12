@@ -37,16 +37,31 @@ namespace ChristmasGiftLibrary
 
         public void Save(string giftName)
         {
-            GiftSerializer.SerializeGift(this, giftName);
+            try
+            {
+                GiftSerializer.SerializeGift(this, giftName);
+            }
+            catch (Exception)
+            {
+                throw new Exception("Failed to save gift");
+            }
+            
         }
 
         public void Load(string giftName)
         {
-            var loadedGift = GiftSerializer.DeserializeGift(this, giftName);
-            TotalWeight = loadedGift.TotalWeight;
-            TotalCost = loadedGift.TotalCost;
-            TotalSugar = loadedGift.TotalSugar;
-            _components = loadedGift._components;
+            try
+            {
+                var loadedGift = GiftSerializer.DeserializeGift(this, giftName);
+                TotalWeight = loadedGift.TotalWeight;
+                TotalCost = loadedGift.TotalCost;
+                TotalSugar = loadedGift.TotalSugar;
+                _components = loadedGift._components;
+            }
+            catch (Exception)
+            {
+                throw new Exception("Failed to load gift");
+            }
 
         }
 

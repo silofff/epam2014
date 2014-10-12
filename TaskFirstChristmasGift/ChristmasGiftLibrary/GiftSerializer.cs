@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
 
 namespace ChristmasGiftLibrary
 {
@@ -23,13 +17,14 @@ namespace ChristmasGiftLibrary
                 _fs = new FileStream(giftName, FileMode.Create);
                 _formatter.Serialize(_fs, gift);
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Debug.Fail(e.Message);
+                throw;
             }
             finally
             {
-                if (_fs != null) _fs.Close();
+                //if (_fs != null) 
+                _fs.Close();
             }
         }
 
@@ -40,13 +35,14 @@ namespace ChristmasGiftLibrary
                 _fs = new FileStream(giftName, FileMode.Open);
                 gift = (ChristmasGift) _formatter.Deserialize(_fs);
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Debug.Fail(e.Message);
+                throw;
             }
             finally 
             {
-                if (_fs != null) _fs.Close();
+                //if (_fs != null) 
+                _fs.Close();
             }
             return gift;
         }

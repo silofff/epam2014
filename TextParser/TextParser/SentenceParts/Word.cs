@@ -17,6 +17,11 @@ namespace TextParser.SentenceParts
             _letters.Add(letter);
         }
 
+        public int Size()
+        {
+            return _letters.Count;
+        }
+
         public IEnumerator<Letter> GetEnumerator()
         {
             return _letters.GetEnumerator();

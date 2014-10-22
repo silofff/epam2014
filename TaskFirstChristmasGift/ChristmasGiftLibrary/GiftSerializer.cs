@@ -16,11 +16,6 @@ namespace ChristmasGiftLibrary
                 _fs = new FileStream(giftName, FileMode.Create);
                 _formatter.Serialize(_fs, gift);
             }
-                //удалить
-            catch (Exception)
-            {
-                throw;
-            }
             finally
             {
                 _fs.Close();
@@ -33,10 +28,6 @@ namespace ChristmasGiftLibrary
             {
                 _fs = new FileStream(giftName, FileMode.Open);
                 gift = (ChristmasGift) _formatter.Deserialize(_fs);
-            }
-            catch (Exception)
-            {
-                throw;
             }
             finally 
             {

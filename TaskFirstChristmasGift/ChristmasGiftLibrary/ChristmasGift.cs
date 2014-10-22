@@ -43,9 +43,8 @@ namespace ChristmasGiftLibrary
                 GiftSerializer.SerializeGift(this, giftName);
             }
             catch (Exception e)
-                //передать ошибку выше
             {
-                throw new Exception("Failed to save gift");
+                throw new Exception("Failed to save gift", e);
             }
             
         }

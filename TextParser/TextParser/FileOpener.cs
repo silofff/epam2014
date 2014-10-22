@@ -9,19 +9,27 @@ namespace TextParser
 {
     public class FileOpener
     {
-        private FileStream _fs;
+        private StreamReader _fs;
 
-        public void OpenFile(string fileName)
+        public List<string> OpenFile(string fileName)
         {
+            var strings = new List<string>();
             try
             {
-                _fs = new FileStream(fileName, FileMode.Create);
+                _fs = new StreamReader(fileName);
+                string line;
+                while ((line = _fs.ReadLine()) != null)
+                {
+                    strings.Add(line);
+                }
 
             }
             finally
             {
                 _fs.Close();
             }
+
+            return strings;
         }
 
     }

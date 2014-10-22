@@ -8,5 +8,6 @@ namespace TextParser.SentenceParts
 {
     class Punctuation
     {
+
     }
 }

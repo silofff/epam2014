@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TextParser.SentenceParts
 {
-    class Punctuation
+    class Punctuation : SentencePart
     {
         public string Mark
         {
@@ -17,6 +17,11 @@ namespace TextParser.SentenceParts
         public Punctuation(string c)
         {
             Mark = c;
+        }
+
+        public override string ReturnString()
+        {
+            return Mark;
         }
     }
 }

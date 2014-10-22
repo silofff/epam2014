@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace TextParser.SentenceParts
 {
-    class Sentence
+    abstract class SentencePart
     {
-        private IList<SentencePart> _sentenceParts = new List<SentencePart>();
+        public abstract string ReturnString();
     }
 }

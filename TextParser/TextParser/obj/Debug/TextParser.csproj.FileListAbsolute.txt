@@ -1,0 +1,5 @@
+d:\Copy\_epam\epam2014\TextParser\TextParser\bin\Debug\TextParser.dll
+d:\Copy\_epam\epam2014\TextParser\TextParser\bin\Debug\TextParser.pdb
+d:\Copy\_epam\epam2014\TextParser\TextParser\obj\Debug\TextParser.csprojResolveAssemblyReference.cache
+d:\Copy\_epam\epam2014\TextParser\TextParser\obj\Debug\TextParser.dll
+d:\Copy\_epam\epam2014\TextParser\TextParser\obj\Debug\TextParser.pdb

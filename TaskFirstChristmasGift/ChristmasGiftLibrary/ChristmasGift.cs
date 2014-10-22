@@ -10,7 +10,9 @@ namespace ChristmasGiftLibrary
     public class ChristmasGift : IEnumerable<Component>
     {
         private IList<Component> _components = new List<Component>();
+        //сделать внешним сериализатор
         [NonSerialized] private static readonly GiftSerializer GiftSerializer = new GiftSerializer();
+        
 
         public double TotalWeight { get; private set; }
         public double TotalCost { get; private set; }
@@ -40,7 +42,8 @@ namespace ChristmasGiftLibrary
             {
                 GiftSerializer.SerializeGift(this, giftName);
             }
-            catch (Exception)
+            catch (Exception e)
+                //передать ошибку выше
             {
                 throw new Exception("Failed to save gift");
             }

@@ -16,6 +16,7 @@ namespace ChristmasGiftLibrary
                 _fs = new FileStream(giftName, FileMode.Create);
                 _formatter.Serialize(_fs, gift);
             }
+                //удалить
             catch (Exception)
             {
                 throw;

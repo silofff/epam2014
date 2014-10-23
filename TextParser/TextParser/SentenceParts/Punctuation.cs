@@ -8,20 +8,10 @@ namespace TextParser.SentenceParts
 {
     class Punctuation : SentencePart
     {
-        public string Mark
+        public Punctuation(string value) :
+            base(value)
         {
-            get;
-            private set;
-        }
-
-        public Punctuation(string c)
-        {
-            Mark = c;
-        }
-
-        public override string ReturnString()
-        {
-            return Mark;
+            
         }
     }
 }

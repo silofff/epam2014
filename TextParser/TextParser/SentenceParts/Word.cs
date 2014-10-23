@@ -10,38 +10,13 @@ using System.Threading.Tasks;
 
 namespace TextParser.SentenceParts
 {
-    class Word : SentencePart, IEnumerable<Letter>
+    class Word : SentencePart
     {
-        private readonly IList<Letter> _letters = new List<Letter>();
-        private static StringBuilder _sb = new StringBuilder();
-
-        public void Add(Letter letter)
+        public Word(string value) :
+            base(value)
         {
-            _letters.Add(letter);
-        }
-
-        public int Size()
-        {
-            return _letters.Count;
-        }
-
-        public IEnumerator<Letter> GetEnumerator()
-        {
-            return _letters.GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-
-        public override string ReturnString()
-        {
-            foreach (var letter in _letters)
-            {
-                _sb.Append(letter);
-            }
-            return _sb.ToString();
+            
         }
     }
 }
+

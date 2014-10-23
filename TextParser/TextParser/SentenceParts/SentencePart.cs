@@ -8,6 +8,15 @@ namespace TextParser.SentenceParts
 {
     abstract class SentencePart
     {
-        public abstract string ReturnString();
+        public string Value
+        {
+            get;
+            private set;
+        }
+
+        protected SentencePart(string value)
+        {
+            Value = value;
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace SentenceProcessor
         {
             var openFileDialog = new OpenFileDialog
             {
-                InitialDirectory = "c:\\",
+                InitialDirectory = "d:\\",
                 FilterIndex = 1,
                 RestoreDirectory = true
             };
@@ -34,8 +34,7 @@ namespace SentenceProcessor
                 var fileName = openFileDialog.FileName;
                 if (fileName == null) return;
 
-                var fileOpen = new FileOpener();
-                fileOpen.OpenFile(fileName);
+                var sentenceSeparator = new SentenceSeparator(fileName);
 
             }
             catch (Exception ex)

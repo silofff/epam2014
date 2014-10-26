@@ -8,6 +8,6 @@ namespace TextParser.SentenceParts
 {
     class Sentence
     {
-        private IList<SentencePart> _sentenceParts = new List<SentencePart>();
+        private readonly IList<SentencePart> _sentenceParts = new List<SentencePart>();
     }
 }

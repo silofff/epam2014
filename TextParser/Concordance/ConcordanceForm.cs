@@ -35,8 +35,8 @@ namespace Concordance
                 var fileName = openFileDialog.FileName;
                 if (fileName == null) return;
 
-                var fileOpen = new FileOpener();
-                fileOpen.OpenFile(fileName);
+                var fileOpen = new FileReader();
+                fileOpen.ReadFile(fileName);
 
             }
             catch (Exception ex)

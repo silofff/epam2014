@@ -1,0 +1,11 @@
+d:\Copy\_epam\epam2014\TextParser\SentenceProcessor\bin\Debug\SentenceProcessor.exe.config
+d:\Copy\_epam\epam2014\TextParser\SentenceProcessor\bin\Debug\SentenceProcessor.exe
+d:\Copy\_epam\epam2014\TextParser\SentenceProcessor\bin\Debug\SentenceProcessor.pdb
+d:\Copy\_epam\epam2014\TextParser\SentenceProcessor\bin\Debug\TextParser.dll
+d:\Copy\_epam\epam2014\TextParser\SentenceProcessor\bin\Debug\TextParser.pdb
+d:\Copy\_epam\epam2014\TextParser\SentenceProcessor\obj\Debug\SentenceProcessor.csprojResolveAssemblyReference.cache
+d:\Copy\_epam\epam2014\TextParser\SentenceProcessor\obj\Debug\SentenceProcessor.FormSentenceProcessor.resources
+d:\Copy\_epam\epam2014\TextParser\SentenceProcessor\obj\Debug\SentenceProcessor.Properties.Resources.resources
+d:\Copy\_epam\epam2014\TextParser\SentenceProcessor\obj\Debug\SentenceProcessor.csproj.GenerateResource.Cache
+d:\Copy\_epam\epam2014\TextParser\SentenceProcessor\obj\Debug\SentenceProcessor.exe
+d:\Copy\_epam\epam2014\TextParser\SentenceProcessor\obj\Debug\SentenceProcessor.pdb

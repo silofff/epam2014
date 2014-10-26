@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TextParser")]
+[assembly: AssemblyTitle("SentenceSeparator")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("MICROSOFT")]
-[assembly: AssemblyProduct("TextParser")]
+[assembly: AssemblyProduct("SentenceSeparator")]
 [assembly: AssemblyCopyright("Copyright © MICROSOFT 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

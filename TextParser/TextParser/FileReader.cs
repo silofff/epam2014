@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace TextParser
 {
-    public class FileOpener
+    public class FileReader
     {
         private StreamReader _fs;
+        private readonly StringBuilder _sb = new StringBuilder();
 
-        public List<string> OpenFile(string fileName)
+        public string ReadFile(string fileName)
         {
             var strings = new List<string>();
             try
@@ -20,7 +21,7 @@ namespace TextParser
                 string line;
                 while ((line = _fs.ReadLine()) != null)
                 {
-                    strings.Add(line);
+                    _sb.Append(line);
                 }
 
             }
@@ -29,7 +30,7 @@ namespace TextParser
                 _fs.Close();
             }
 
-            return strings;
+            return _sb.ToString();
         }
 
     }

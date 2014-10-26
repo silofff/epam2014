@@ -12,13 +12,15 @@ namespace TextParser
     {
         private static readonly FileReader FileReader = new FileReader();
         private string _text;
-        private readonly Regex _regexSentence = new Regex(@"\w+[^.!?]*[.!?]", RegexOptions.IgnoreCase);
+        private readonly Regex _regexSentence = new Regex(@"\w+[^.!?]*[.!?]*\n*", RegexOptions.IgnoreCase);
         private readonly ReadyText _readyText = new ReadyText();
+        private readonly Regex _regexSpaces = new Regex(@"[ ]{2,}\t?");
         private static readonly ConvertTextToString Converter = new ConvertTextToString();
 
         public void Create(string fileName)
         {
             _text = FileReader.ReadFile(fileName);
+            _text = _regexSpaces.Replace(_text, @" ");
             var match = _regexSentence.Match(_text);
             while (match.Success)
             {

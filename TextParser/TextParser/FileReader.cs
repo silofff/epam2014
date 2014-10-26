@@ -21,7 +21,7 @@ namespace TextParser
                 string line;
                 while ((line = _fs.ReadLine()) != null)
                 {
-                    _sb.Append(line);
+                    _sb.Append(line).Append("\n");
                 }
 
             }

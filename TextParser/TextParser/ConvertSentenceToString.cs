@@ -16,7 +16,7 @@ namespace TextParser
 
             foreach (var c in convertible)
             {
-                if (c is Word) _sb.Append(" ").Append(c.Value);
+                if (c is Word) _sb.Append(c.Value);
                 else _sb.Append(c.Value);
             }
 

@@ -39,11 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConvertSentenceToString.cs" />
+    <Compile Include="ConvertTextToString.cs" />
     <Compile Include="FileReader.cs" />
+    <Compile Include="IConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SentenceParts\Punctuation.cs" />
     <Compile Include="SentenceParts\Sentence.cs" />
     <Compile Include="SentenceParts\SentencePart.cs" />
+    <Compile Include="SentenceParts\ReadyText.cs" />
     <Compile Include="SentenceParts\Word.cs" />
     <Compile Include="SentenceSeparator.cs" />
   </ItemGroup>

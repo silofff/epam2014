@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TextParser.SentenceParts
 {
-    abstract class SentencePart
+    public abstract class SentencePart
     {
         public string Value
         {

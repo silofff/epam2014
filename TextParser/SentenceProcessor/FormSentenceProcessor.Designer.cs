@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.buttonOpen = new System.Windows.Forms.Button();
+            this.textBoxOutput = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // buttonOpen
@@ -41,11 +42,20 @@
             this.buttonOpen.UseVisualStyleBackColor = true;
             this.buttonOpen.Click += new System.EventHandler(this.buttonOpen_Click);
             // 
+            // textBoxOutput
+            // 
+            this.textBoxOutput.Location = new System.Drawing.Point(93, 14);
+            this.textBoxOutput.Name = "textBoxOutput";
+            this.textBoxOutput.Size = new System.Drawing.Size(420, 359);
+            this.textBoxOutput.TabIndex = 1;
+            this.textBoxOutput.Text = "";
+            // 
             // FormSentenceProcessor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(525, 385);
+            this.Controls.Add(this.textBoxOutput);
             this.Controls.Add(this.buttonOpen);
             this.Name = "FormSentenceProcessor";
             this.Text = "Sentence Processor";
@@ -56,6 +66,7 @@
         #endregion
 
         private System.Windows.Forms.Button buttonOpen;
+        private System.Windows.Forms.RichTextBox textBoxOutput;
     }
 }
 

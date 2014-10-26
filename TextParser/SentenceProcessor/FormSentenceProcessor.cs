@@ -34,8 +34,9 @@ namespace SentenceProcessor
                 var fileName = openFileDialog.FileName;
                 if (fileName == null) return;
 
-                var sentenceSeparator = new SentenceSeparator(fileName);
-
+                var sentenceSeparator = new SentenceSeparator();
+                sentenceSeparator.Create(fileName);
+                textBoxOutput.Text = sentenceSeparator.ToString();
             }
             catch (Exception ex)
             {

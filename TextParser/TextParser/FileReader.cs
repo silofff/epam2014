@@ -14,7 +14,7 @@ namespace TextParser
 
         public string ReadFile(string fileName)
         {
-            var strings = new List<string>();
+            _sb.Clear();
             try
             {
                 _fs = new StreamReader(fileName);

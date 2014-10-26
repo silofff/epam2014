@@ -12,11 +12,12 @@ namespace TextParser.SentenceParts
     {
         private readonly IList<SentencePart> _sentenceParts = new List<SentencePart>();
         private readonly Regex _regexWord = new Regex(@"\w+", RegexOptions.IgnoreCase);
-        private readonly Regex _regexPunctuation = new Regex(@"\W+\n*|\n", RegexOptions.IgnoreCase); //|[^\w\s]+
+        private readonly Regex _regexPunctuation = new Regex(@"[^\w\s]+\n*|\n", RegexOptions.IgnoreCase);
+        private readonly Regex _regexWhitespace = new Regex(@"[ ]");
         
         public Sentence Create(string sentence)
         {
-            foreach (Match match in Regex.Matches(sentence, @"\W+|\w+", RegexOptions.IgnoreCase))
+            foreach (Match match in Regex.Matches(sentence, @"\s+|[^\w\s]|\w+", RegexOptions.IgnoreCase))
             {
                 if (_regexPunctuation.IsMatch(match.Value))
                 {
@@ -24,6 +25,10 @@ namespace TextParser.SentenceParts
                 } else if (_regexWord.IsMatch(match.Value))
                 {
                     _sentenceParts.Add(new Word(_regexWord.Match(match.Value).Value));
+                }
+                else if (_regexWhitespace.IsMatch(match.Value))
+                {
+                    _sentenceParts.Add(new Whitespace(_regexWhitespace.Match(match.Value).Value));
                 }
             }
 

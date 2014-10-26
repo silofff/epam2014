@@ -48,6 +48,7 @@
     <Compile Include="SentenceParts\Sentence.cs" />
     <Compile Include="SentenceParts\SentencePart.cs" />
     <Compile Include="SentenceParts\ReadyText.cs" />
+    <Compile Include="SentenceParts\Whitespace.cs" />
     <Compile Include="SentenceParts\Word.cs" />
     <Compile Include="SentenceSeparator.cs" />
   </ItemGroup>

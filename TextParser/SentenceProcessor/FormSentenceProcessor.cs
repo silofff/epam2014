@@ -13,6 +13,7 @@ namespace SentenceProcessor
 {
     public partial class FormSentenceProcessor : Form
     {
+        private SentenceSeparator _sentenceSeparator;
         public FormSentenceProcessor()
         {
             InitializeComponent();
@@ -34,13 +35,23 @@ namespace SentenceProcessor
                 var fileName = openFileDialog.FileName;
                 if (fileName == null) return;
 
-                var sentenceSeparator = new SentenceSeparator();
-                sentenceSeparator.Create(fileName);
-                textBoxOutput.Text = sentenceSeparator.ToString();
+                _sentenceSeparator = new SentenceSeparator();
+                _sentenceSeparator.Create(fileName);
+                textBoxOutput.Text = _sentenceSeparator.ToString();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Can't open file");
+            }
+        }
+
+        private void buttonSort_Click(object sender, EventArgs e)
+        {
+            textBoxOutput.Clear();
+            if (_sentenceSeparator != null)
+            {
+                _sentenceSeparator.Sort();
+                textBoxOutput.Text = _sentenceSeparator.ToString();
             }
         }
     }

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace TextParser
 {
-    interface IConverter<T1, T2>
+    interface IConverter<out T, in TU>
     {
-        T1 Convert(T2 convertible);
+        T Convert(TU convertible);
     }
 }

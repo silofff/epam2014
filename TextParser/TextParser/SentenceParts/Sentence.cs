@@ -35,6 +35,11 @@ namespace TextParser.SentenceParts
             return this;
         }
 
+        public int WordCount()
+        {
+            return _sentenceParts.OfType<Word>().Count();
+        }
+
         public IEnumerator<SentencePart> GetEnumerator()
         {
             return _sentenceParts.GetEnumerator();

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.buttonOpen = new System.Windows.Forms.Button();
+            this.richTextBoxOutput = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // buttonOpen
@@ -41,11 +42,20 @@
             this.buttonOpen.UseVisualStyleBackColor = true;
             this.buttonOpen.Click += new System.EventHandler(this.buttonOpen_Click);
             // 
+            // richTextBoxOutput
+            // 
+            this.richTextBoxOutput.Location = new System.Drawing.Point(93, 12);
+            this.richTextBoxOutput.Name = "richTextBoxOutput";
+            this.richTextBoxOutput.Size = new System.Drawing.Size(435, 357);
+            this.richTextBoxOutput.TabIndex = 1;
+            this.richTextBoxOutput.Text = "";
+            // 
             // ConcordanceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(540, 381);
+            this.Controls.Add(this.richTextBoxOutput);
             this.Controls.Add(this.buttonOpen);
             this.Name = "ConcordanceForm";
             this.Text = "Concordance";
@@ -56,6 +66,7 @@
         #endregion
 
         private System.Windows.Forms.Button buttonOpen;
+        private System.Windows.Forms.RichTextBox richTextBoxOutput;
     }
 }
 

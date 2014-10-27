@@ -19,6 +19,12 @@ namespace TextParser.SentenceParts
             
         }
 
+        public int Position
+        {
+            get;
+            set;
+        }
+
         public int Lenght()
         {
             return Value.Length;

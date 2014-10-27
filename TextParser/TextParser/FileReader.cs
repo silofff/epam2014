@@ -33,5 +33,27 @@ namespace TextParser
             return _sb.ToString();
         }
 
+        public List<string> ReadRows(string fileName)
+        {
+            var list = new List<string>();
+            try
+            {
+                _fs = new StreamReader(fileName);
+                string line;
+                while ((line = _fs.ReadLine()) != null)
+                {
+                    list.Add(line);
+                }
+
+            }
+            finally
+            {
+                _fs.Close();
+            }
+
+            return list;
+
+        }
+
     }
 }

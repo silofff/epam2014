@@ -1,0 +1,11 @@
+d:\Copy\_epam\epam2014\TextParser\Concordance\bin\Debug\Concordance.exe.config
+d:\Copy\_epam\epam2014\TextParser\Concordance\bin\Debug\Concordance.exe
+d:\Copy\_epam\epam2014\TextParser\Concordance\bin\Debug\Concordance.pdb
+d:\Copy\_epam\epam2014\TextParser\Concordance\bin\Debug\TextParser.dll
+d:\Copy\_epam\epam2014\TextParser\Concordance\bin\Debug\TextParser.pdb
+d:\Copy\_epam\epam2014\TextParser\Concordance\obj\Debug\Concordance.csprojResolveAssemblyReference.cache
+d:\Copy\_epam\epam2014\TextParser\Concordance\obj\Debug\Concordance.ConcordanceForm.resources
+d:\Copy\_epam\epam2014\TextParser\Concordance\obj\Debug\Concordance.Properties.Resources.resources
+d:\Copy\_epam\epam2014\TextParser\Concordance\obj\Debug\Concordance.csproj.GenerateResource.Cache
+d:\Copy\_epam\epam2014\TextParser\Concordance\obj\Debug\Concordance.exe
+d:\Copy\_epam\epam2014\TextParser\Concordance\obj\Debug\Concordance.pdb

@@ -13,6 +13,8 @@ namespace Concordance
 {
     public partial class ConcordanceForm : Form
     {
+        private readonly TextParser.Concordance _concordance = new TextParser.Concordance();
+
         public ConcordanceForm()
         {
             InitializeComponent();
@@ -23,7 +25,7 @@ namespace Concordance
         {
             var openFileDialog = new OpenFileDialog
             {
-                InitialDirectory = "c:\\",
+                InitialDirectory = "d:\\",
                 FilterIndex = 1,
                 RestoreDirectory = true
             };
@@ -34,9 +36,9 @@ namespace Concordance
             {
                 var fileName = openFileDialog.FileName;
                 if (fileName == null) return;
-
-                var fileOpen = new FileReader();
-                fileOpen.ReadFile(fileName);
+                _concordance.Create(fileName);
+                _concordance.GetConcordance();
+                richTextBoxOutput.Text += _concordance.ToString();
 
             }
             catch (Exception ex)

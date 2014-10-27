@@ -22,6 +22,22 @@ namespace TextParser.SentenceParts
             _sentences = _sentences.OrderBy(x => x.WordCount()).ToList();
         }
 
+        public void RemoveConsonant(int length)
+        {
+            foreach (var sentence in _sentences)
+            {
+                sentence.RemoveWords(sentence.OfType<Word>().Where(x => x.Lenght() == length && !x.IsVowel()).ToList());
+            }
+        }
+
+        public void ReplaceWords(int length, string substring)
+        {
+            foreach (var sentence in _sentences)
+            {
+                sentence.ReplaceWords(sentence.OfType<Word>().Where(x => x.Lenght() == length).ToList(), substring);
+            }
+        }
+
         public IEnumerator<Sentence> GetEnumerator()
         {
             return _sentences.GetEnumerator();
@@ -32,20 +48,5 @@ namespace TextParser.SentenceParts
             return GetEnumerator();
         }
 
-        public void RemoveConsonant(int length)
-        {
-            foreach (var sentence in _sentences)
-            {
-                sentence.RemoveWords(sentence.OfType<Word>().Where(x => x.Lenght() == length && !x.IsVowel()).ToList());
-            }
-        }
-
-        public void ReplaceWord(int length, string substring)
-        {
-            foreach (var sentence in _sentences)
-            {
-                sentence.ReplaceWords(sentence.OfType<Word>().Where(x => x.Lenght() == length).ToList(), substring);
-            }
-        }
     }
 }

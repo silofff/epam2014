@@ -35,6 +35,8 @@
             this.textBoxWordLength = new System.Windows.Forms.TextBox();
             this.buttonReplace = new System.Windows.Forms.Button();
             this.textBoxSubstring = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonOpen
@@ -49,9 +51,12 @@
             // 
             // textBoxOutput
             // 
-            this.textBoxOutput.Location = new System.Drawing.Point(93, 14);
+            this.textBoxOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxOutput.Location = new System.Drawing.Point(185, 12);
             this.textBoxOutput.Name = "textBoxOutput";
-            this.textBoxOutput.Size = new System.Drawing.Size(420, 359);
+            this.textBoxOutput.Size = new System.Drawing.Size(522, 359);
             this.textBoxOutput.TabIndex = 1;
             this.textBoxOutput.Text = "";
             // 
@@ -67,7 +72,7 @@
             // 
             // buttonDeleteWord
             // 
-            this.buttonDeleteWord.Location = new System.Drawing.Point(12, 97);
+            this.buttonDeleteWord.Location = new System.Drawing.Point(12, 70);
             this.buttonDeleteWord.Name = "buttonDeleteWord";
             this.buttonDeleteWord.Size = new System.Drawing.Size(75, 23);
             this.buttonDeleteWord.TabIndex = 3;
@@ -77,14 +82,14 @@
             // 
             // textBoxWordLength
             // 
-            this.textBoxWordLength.Location = new System.Drawing.Point(12, 71);
+            this.textBoxWordLength.Location = new System.Drawing.Point(93, 72);
             this.textBoxWordLength.Name = "textBoxWordLength";
             this.textBoxWordLength.Size = new System.Drawing.Size(75, 20);
             this.textBoxWordLength.TabIndex = 4;
             // 
             // buttonReplace
             // 
-            this.buttonReplace.Location = new System.Drawing.Point(12, 152);
+            this.buttonReplace.Location = new System.Drawing.Point(12, 118);
             this.buttonReplace.Name = "buttonReplace";
             this.buttonReplace.Size = new System.Drawing.Size(75, 23);
             this.buttonReplace.TabIndex = 5;
@@ -94,16 +99,36 @@
             // 
             // textBoxSubstring
             // 
-            this.textBoxSubstring.Location = new System.Drawing.Point(12, 126);
+            this.textBoxSubstring.Location = new System.Drawing.Point(93, 120);
             this.textBoxSubstring.Name = "textBoxSubstring";
             this.textBoxSubstring.Size = new System.Drawing.Size(75, 20);
             this.textBoxSubstring.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(93, 56);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Length";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(93, 104);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Substring";
             // 
             // FormSentenceProcessor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(525, 385);
+            this.ClientSize = new System.Drawing.Size(719, 385);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxSubstring);
             this.Controls.Add(this.buttonReplace);
             this.Controls.Add(this.textBoxWordLength);
@@ -127,6 +152,8 @@
         private System.Windows.Forms.TextBox textBoxWordLength;
         private System.Windows.Forms.Button buttonReplace;
         private System.Windows.Forms.TextBox textBoxSubstring;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

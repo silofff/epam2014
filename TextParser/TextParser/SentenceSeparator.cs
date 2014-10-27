@@ -36,7 +36,7 @@ namespace TextParser
 
         public void ReplaceWords(int length, string substring)
         {
-            _readyText.ReplaceWord(length, substring);
+            _readyText.ReplaceWords(length, substring);
         }
 
         public void Sort()

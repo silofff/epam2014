@@ -39,5 +39,13 @@ namespace TextParser.SentenceParts
                 sentence.RemoveWords(sentence.OfType<Word>().Where(x => x.Lenght() == length && !x.IsVowel()).ToList());
             }
         }
+
+        public void ReplaceWord(int length, string substring)
+        {
+            foreach (var sentence in _sentences)
+            {
+                sentence.ReplaceWords(sentence.OfType<Word>().Where(x => x.Lenght() == length).ToList(), substring);
+            }
+        }
     }
 }

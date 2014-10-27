@@ -57,11 +57,18 @@ namespace SentenceProcessor
         {
             textBoxOutput.Clear();
             int length = Int16.Parse(textBoxWordLength.Text);
-            if (_sentenceSeparator != null && length != 0)
-            {
-                _sentenceSeparator.RemoveConsonant(length);
-                textBoxOutput.Text = _sentenceSeparator.ToString();
-            }
+            if (_sentenceSeparator == null || length == 0) return;
+            _sentenceSeparator.RemoveConsonant(length);
+            textBoxOutput.Text = _sentenceSeparator.ToString();
+        }
+
+        private void buttonReplace_Click(object sender, EventArgs e)
+        {
+            textBoxOutput.Clear();
+            int length = Int16.Parse(textBoxWordLength.Text);
+            if (_sentenceSeparator == null || length == 0 || textBoxSubstring.Text == "") return;
+            _sentenceSeparator.ReplaceWords(length, textBoxSubstring.Text);
+            textBoxOutput.Text = _sentenceSeparator.ToString();
         }
     }
 }

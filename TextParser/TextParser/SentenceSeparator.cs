@@ -10,12 +10,12 @@ namespace TextParser
 {
     public class SentenceSeparator
     {
-        private readonly FileReader FileReader = new FileReader();
+        private readonly static FileReader FileReader = new FileReader();
         private string _text;
         private readonly Regex _regexSentence = new Regex(@"\w+[^.!?]*[.!?]*\n*", RegexOptions.IgnoreCase);
         private readonly ReadyText _readyText = new ReadyText();
         private readonly Regex _regexSpaces = new Regex(@"[ ]{2,}\t?");
-        private readonly IConverter<string,ReadyText> Converter = new ConvertTextToString();
+        private readonly static IConverter<string,ReadyText> Converter = new ConvertTextToString();
 
         public void Create(string fileName)
         {
@@ -32,6 +32,11 @@ namespace TextParser
         public void RemoveConsonant(int length)
         {
             _readyText.RemoveConsonant(length);
+        }
+
+        public void ReplaceWords(int length, string substring)
+        {
+            _readyText.ReplaceWord(length, substring);
         }
 
         public void Sort()

@@ -33,6 +33,8 @@
             this.buttonSort = new System.Windows.Forms.Button();
             this.buttonDeleteWord = new System.Windows.Forms.Button();
             this.textBoxWordLength = new System.Windows.Forms.TextBox();
+            this.buttonReplace = new System.Windows.Forms.Button();
+            this.textBoxSubstring = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // buttonOpen
@@ -80,11 +82,30 @@
             this.textBoxWordLength.Size = new System.Drawing.Size(75, 20);
             this.textBoxWordLength.TabIndex = 4;
             // 
+            // buttonReplace
+            // 
+            this.buttonReplace.Location = new System.Drawing.Point(12, 152);
+            this.buttonReplace.Name = "buttonReplace";
+            this.buttonReplace.Size = new System.Drawing.Size(75, 23);
+            this.buttonReplace.TabIndex = 5;
+            this.buttonReplace.Text = "Replace Word";
+            this.buttonReplace.UseVisualStyleBackColor = true;
+            this.buttonReplace.Click += new System.EventHandler(this.buttonReplace_Click);
+            // 
+            // textBoxSubstring
+            // 
+            this.textBoxSubstring.Location = new System.Drawing.Point(12, 126);
+            this.textBoxSubstring.Name = "textBoxSubstring";
+            this.textBoxSubstring.Size = new System.Drawing.Size(75, 20);
+            this.textBoxSubstring.TabIndex = 6;
+            // 
             // FormSentenceProcessor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(525, 385);
+            this.Controls.Add(this.textBoxSubstring);
+            this.Controls.Add(this.buttonReplace);
             this.Controls.Add(this.textBoxWordLength);
             this.Controls.Add(this.buttonDeleteWord);
             this.Controls.Add(this.buttonSort);
@@ -104,6 +125,8 @@
         private System.Windows.Forms.Button buttonSort;
         private System.Windows.Forms.Button buttonDeleteWord;
         private System.Windows.Forms.TextBox textBoxWordLength;
+        private System.Windows.Forms.Button buttonReplace;
+        private System.Windows.Forms.TextBox textBoxSubstring;
     }
 }
 

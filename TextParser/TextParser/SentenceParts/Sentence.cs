@@ -10,7 +10,7 @@ namespace TextParser.SentenceParts
 {
     public class Sentence : IEnumerable<SentencePart>
     {
-        private readonly IList<SentencePart> _sentenceParts = new List<SentencePart>();
+        private List<SentencePart> _sentenceParts = new List<SentencePart>();
         private readonly Regex _regexWord = new Regex(@"\w+", RegexOptions.IgnoreCase);
         private readonly Regex _regexPunctuation = new Regex(@"[^\w\s]+\n*|\n", RegexOptions.IgnoreCase);
         private readonly Regex _regexWhitespace = new Regex(@"[ ]");
@@ -40,12 +40,12 @@ namespace TextParser.SentenceParts
             return _sentenceParts.OfType<Word>().Count();
         }
 
-        public void RemoveWords(List<Word> sentencePart)
+        public void RemoveWords(List<Word> words)
         {
-            foreach (var part in sentencePart)
+            foreach (var word in words)
             {
-                _sentenceParts.Remove(part);}
-            
+                _sentenceParts.Remove(word);
+            }
         }
 
         public IEnumerator<SentencePart> GetEnumerator()
@@ -56,6 +56,14 @@ namespace TextParser.SentenceParts
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
+        }
+
+        public void ReplaceWords(List<Word> words, string substring)
+        {
+            foreach (var word in words)
+            {
+               _sentenceParts[_sentenceParts.IndexOf(word)] = new Word(substring);
+            }
         }
     }
 }

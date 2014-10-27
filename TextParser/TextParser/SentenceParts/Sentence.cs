@@ -40,6 +40,14 @@ namespace TextParser.SentenceParts
             return _sentenceParts.OfType<Word>().Count();
         }
 
+        public void RemoveWords(List<Word> sentencePart)
+        {
+            foreach (var part in sentencePart)
+            {
+                _sentenceParts.Remove(part);}
+            
+        }
+
         public IEnumerator<SentencePart> GetEnumerator()
         {
             return _sentenceParts.GetEnumerator();

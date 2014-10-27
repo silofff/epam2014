@@ -31,6 +31,8 @@
             this.buttonOpen = new System.Windows.Forms.Button();
             this.textBoxOutput = new System.Windows.Forms.RichTextBox();
             this.buttonSort = new System.Windows.Forms.Button();
+            this.buttonDeleteWord = new System.Windows.Forms.Button();
+            this.textBoxWordLength = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // buttonOpen
@@ -61,17 +63,37 @@
             this.buttonSort.UseVisualStyleBackColor = true;
             this.buttonSort.Click += new System.EventHandler(this.buttonSort_Click);
             // 
+            // buttonDeleteWord
+            // 
+            this.buttonDeleteWord.Location = new System.Drawing.Point(12, 97);
+            this.buttonDeleteWord.Name = "buttonDeleteWord";
+            this.buttonDeleteWord.Size = new System.Drawing.Size(75, 23);
+            this.buttonDeleteWord.TabIndex = 3;
+            this.buttonDeleteWord.Text = "Delete Word";
+            this.buttonDeleteWord.UseVisualStyleBackColor = true;
+            this.buttonDeleteWord.Click += new System.EventHandler(this.buttonDeleteWord_Click);
+            // 
+            // textBoxWordLength
+            // 
+            this.textBoxWordLength.Location = new System.Drawing.Point(12, 71);
+            this.textBoxWordLength.Name = "textBoxWordLength";
+            this.textBoxWordLength.Size = new System.Drawing.Size(75, 20);
+            this.textBoxWordLength.TabIndex = 4;
+            // 
             // FormSentenceProcessor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(525, 385);
+            this.Controls.Add(this.textBoxWordLength);
+            this.Controls.Add(this.buttonDeleteWord);
             this.Controls.Add(this.buttonSort);
             this.Controls.Add(this.textBoxOutput);
             this.Controls.Add(this.buttonOpen);
             this.Name = "FormSentenceProcessor";
             this.Text = "Sentence Processor";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -80,6 +102,8 @@
         private System.Windows.Forms.Button buttonOpen;
         private System.Windows.Forms.RichTextBox textBoxOutput;
         private System.Windows.Forms.Button buttonSort;
+        private System.Windows.Forms.Button buttonDeleteWord;
+        private System.Windows.Forms.TextBox textBoxWordLength;
     }
 }
 

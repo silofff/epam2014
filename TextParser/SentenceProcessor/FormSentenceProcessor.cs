@@ -48,9 +48,18 @@ namespace SentenceProcessor
         private void buttonSort_Click(object sender, EventArgs e)
         {
             textBoxOutput.Clear();
-            if (_sentenceSeparator != null)
+            if (_sentenceSeparator == null) return;
+            _sentenceSeparator.Sort();
+            textBoxOutput.Text = _sentenceSeparator.ToString();
+        }
+
+        private void buttonDeleteWord_Click(object sender, EventArgs e)
+        {
+            textBoxOutput.Clear();
+            int length = Int16.Parse(textBoxWordLength.Text);
+            if (_sentenceSeparator != null && length != 0)
             {
-                _sentenceSeparator.Sort();
+                _sentenceSeparator.RemoveConsonant(length);
                 textBoxOutput.Text = _sentenceSeparator.ToString();
             }
         }

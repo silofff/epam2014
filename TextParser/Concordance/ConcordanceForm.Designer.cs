@@ -30,6 +30,7 @@
         {
             this.buttonOpen = new System.Windows.Forms.Button();
             this.richTextBoxOutput = new System.Windows.Forms.RichTextBox();
+            this.textBoxPage = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // buttonOpen
@@ -44,22 +45,34 @@
             // 
             // richTextBoxOutput
             // 
+            this.richTextBoxOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBoxOutput.Location = new System.Drawing.Point(93, 12);
             this.richTextBoxOutput.Name = "richTextBoxOutput";
             this.richTextBoxOutput.Size = new System.Drawing.Size(435, 357);
             this.richTextBoxOutput.TabIndex = 1;
             this.richTextBoxOutput.Text = "";
             // 
+            // textBoxPage
+            // 
+            this.textBoxPage.Location = new System.Drawing.Point(12, 41);
+            this.textBoxPage.Name = "textBoxPage";
+            this.textBoxPage.Size = new System.Drawing.Size(75, 20);
+            this.textBoxPage.TabIndex = 2;
+            // 
             // ConcordanceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(540, 381);
+            this.Controls.Add(this.textBoxPage);
             this.Controls.Add(this.richTextBoxOutput);
             this.Controls.Add(this.buttonOpen);
             this.Name = "ConcordanceForm";
             this.Text = "Concordance";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -67,6 +80,7 @@
 
         private System.Windows.Forms.Button buttonOpen;
         private System.Windows.Forms.RichTextBox richTextBoxOutput;
+        private System.Windows.Forms.TextBox textBoxPage;
     }
 }
 

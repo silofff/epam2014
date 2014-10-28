@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace TextParser.SentenceParts
 {
-    public class Sentence : IEnumerable<SentencePart>
+    public class Sentence : IEnumerable<ISentencePart>
     {
-        private readonly List<SentencePart> _sentenceParts = new List<SentencePart>();
+        private readonly IList<ISentencePart> _sentenceParts = new List<ISentencePart>();
         private readonly Regex _regexWord = new Regex(@"\w+", RegexOptions.IgnoreCase);
         private readonly Regex _regexPunctuation = new Regex(@"[^\w\s]+\n*|\n", RegexOptions.IgnoreCase);
-        private readonly Regex _regexWhitespace = new Regex(@"[ ]");
+		private readonly Regex _regexWhitespace = new Regex(@"[ ]", RegexOptions.IgnoreCase);
         
         public Sentence Create(string sentence)
         {
@@ -22,16 +19,18 @@ namespace TextParser.SentenceParts
                 if (_regexPunctuation.IsMatch(match.Value))
                 {
                     _sentenceParts.Add(new Punctuation(_regexPunctuation.Match(match.Value).Value));
-                } else if (_regexWord.IsMatch(match.Value))
+					continue;
+                }
+				if (_regexWord.IsMatch(match.Value))
                 {
                     _sentenceParts.Add(new Word(_regexWord.Match(match.Value).Value));
+					continue;
                 }
-                else if (_regexWhitespace.IsMatch(match.Value))
+                if (_regexWhitespace.IsMatch(match.Value))
                 {
                     _sentenceParts.Add(new Whitespace(_regexWhitespace.Match(match.Value).Value));
                 }
             }
-
             return this;
         }
 
@@ -42,26 +41,16 @@ namespace TextParser.SentenceParts
 
         public void RemoveWords(List<Word> words)
         {
-            foreach (var word in words)
-            {
-                RemovePart(word);
-            }
+			words.ForEach (x => _sentenceParts.Remove (x));
         }
 
-        public void RemovePart(SentencePart part)
+
+		public void ReplaceWords(List<Word> words, string substring)
         {
-            _sentenceParts.Remove(part);
+			words.ForEach (x => _sentenceParts [_sentenceParts.IndexOf (x)] = new Word (substring));
         }
 
-        public void ReplaceWords(List<Word> words, string substring)
-        {
-            foreach (var word in words)
-            {
-                ReplaceWord(word,substring);
-            }
-        }
-
-        public IEnumerator<SentencePart> GetEnumerator()
+        public IEnumerator<ISentencePart> GetEnumerator()
         {
             return _sentenceParts.GetEnumerator();
         }
@@ -69,11 +58,6 @@ namespace TextParser.SentenceParts
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
-        }
-
-        public void ReplaceWord(Word word, string substring)
-        {
-            _sentenceParts[_sentenceParts.IndexOf(word)] = new Word(substring);
-        }
+        }			
     }
 }

@@ -9,3 +9,14 @@ d:\Copy\_epam\epam2014\TextParser\SentenceProcessor\obj\Debug\SentenceProcessor.
 d:\Copy\_epam\epam2014\TextParser\SentenceProcessor\obj\Debug\SentenceProcessor.csproj.GenerateResource.Cache
 d:\Copy\_epam\epam2014\TextParser\SentenceProcessor\obj\Debug\SentenceProcessor.exe
 d:\Copy\_epam\epam2014\TextParser\SentenceProcessor\obj\Debug\SentenceProcessor.pdb
+C:\Users\user\Downloads\TextParser\SentenceProcessor\bin\Debug\SentenceProcessor.exe.config
+C:\Users\user\Downloads\TextParser\SentenceProcessor\bin\Debug\SentenceProcessor.exe
+C:\Users\user\Downloads\TextParser\SentenceProcessor\bin\Debug\SentenceProcessor.pdb
+C:\Users\user\Downloads\TextParser\SentenceProcessor\bin\Debug\TextParser.dll
+C:\Users\user\Downloads\TextParser\SentenceProcessor\bin\Debug\TextParser.pdb
+C:\Users\user\Downloads\TextParser\SentenceProcessor\obj\Debug\SentenceProcessor.csprojResolveAssemblyReference.cache
+C:\Users\user\Downloads\TextParser\SentenceProcessor\obj\Debug\SentenceProcessor.FormSentenceProcessor.resources
+C:\Users\user\Downloads\TextParser\SentenceProcessor\obj\Debug\SentenceProcessor.Properties.Resources.resources
+C:\Users\user\Downloads\TextParser\SentenceProcessor\obj\Debug\SentenceProcessor.csproj.GenerateResource.Cache
+C:\Users\user\Downloads\TextParser\SentenceProcessor\obj\Debug\SentenceProcessor.exe
+C:\Users\user\Downloads\TextParser\SentenceProcessor\obj\Debug\SentenceProcessor.pdb

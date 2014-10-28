@@ -79,7 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TextParser\TextParser.csproj">
-      <Project>{195b7f50-ba04-43da-ad8b-04e7d31bc120}</Project>
+      <Project>{195B7F50-BA04-43DA-AD8B-04E7D31BC120}</Project>
       <Name>TextParser</Name>
     </ProjectReference>
   </ItemGroup>

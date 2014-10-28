@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace TextParser
 {
@@ -14,7 +10,7 @@ namespace TextParser
             set;
         }
 
-        public List<int> Rows = new List<int>();
+        public List<int> Pages = new List<int>();
 
     }
 }

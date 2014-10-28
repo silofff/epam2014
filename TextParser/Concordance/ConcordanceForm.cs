@@ -1,19 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using TextParser;
 
 namespace Concordance
 {
     public partial class ConcordanceForm : Form
     {
-        private readonly TextParser.Concordance _concordance = new TextParser.Concordance();
+        private TextParser.Concordance _concordance;
 
         public ConcordanceForm()
         {
@@ -23,6 +15,7 @@ namespace Concordance
 
         private void buttonOpen_Click(object sender, EventArgs e)
         {
+			richTextBoxOutput.Clear ();
             var openFileDialog = new OpenFileDialog
             {
                 InitialDirectory = "d:\\",
@@ -35,8 +28,9 @@ namespace Concordance
             try
             {
                 var fileName = openFileDialog.FileName;
-                if (fileName == null) return;
-                _concordance.Create(fileName);
+                if (fileName == null && textBoxPage.Text == "") return;
+                _concordance = new TextParser.Concordance();
+                _concordance.Create(fileName, Int16.Parse(textBoxPage.Text));
                 _concordance.GetConcordance();
                 richTextBoxOutput.Text += _concordance.ToString();
 

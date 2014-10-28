@@ -1,54 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using TextParser.Converters;
 using TextParser.SentenceParts;
 
 namespace TextParser
 {
-    public class Concordance
-    {
-        private readonly IDictionary<string, Position> _concodance = new SortedDictionary<string, Position>();
-        private readonly IConverter<string, IDictionary<string, Position>> _converter = new ConvertConcordanceToString(); 
-        private readonly IList<Word> _words = new List<Word>(); 
-        private readonly FileReader _fileReader = new FileReader();
-        private readonly Regex _regexWord = new Regex(@"\w+", RegexOptions.IgnoreCase);
-        private List<string> _text;
-        public void Create(string fileName)
-        {
-            _text = _fileReader.ReadRows(fileName);
-            foreach (var row in _text)
-            {
-                var match = _regexWord.Match(row);
-                while (match.Success)
-                {
-                   _words.Add(new Word(match.Value.ToLower()){Position = _text.IndexOf(row)+1});
-                    match = match.NextMatch();
-                }
-            }
-        }
+	public class Concordance
+	{
+		private IDictionary<string, Position> _concordance;
+		private readonly IConverter<string, IDictionary<string, Position>> _converter = new ConvertConcordanceToString ();
+		private readonly IList<Word> _words = new List<Word> ();
+		private readonly FileReader _fileReader = new FileReader ();
+		private readonly Regex _regexWord = new Regex (@"\w+", RegexOptions.IgnoreCase);
+		private IList<string> _text;
 
-        public void GetConcordance()
-        {
-            foreach (var word in _words.Select(x => x.Value).Distinct())
-            {
-                var number = new Position
-                {
-                    NumberOfUse = _words.Count(x => x.Value == word),
-                    Rows = _words.Where(x => x.Value == word).Select(x => x.Position).Distinct().ToList()
-                };
-                _concodance.Add(word, number);
-            }
-        }
+		public void Create (string fileName, int pagePerRows)
+		{
+			_text = _fileReader.ReadRows (fileName);
+			foreach (var row in _text) {
+				var match = _regexWord.Match (row);
+				while (match.Success) {
+					if (pagePerRows <= 0) return;
+                    _words.Add (new Word (match.Value.ToLower ()){ Page = ((_text.IndexOf (row)) / pagePerRows) + 1 });
+					match = match.NextMatch ();
+				}
+			}
+		}
 
-        public override string ToString()
-        {
-            return _converter.Convert(_concodance);
-        }
-    }
+		public void GetConcordance ()
+		{
+			var p = _words
+						.GroupBy (x => x.Value)
+						.OrderBy (z => z.Key)
+						.Select (z => new {	Word = z.Key, Count = z.Count (), Positions = z.Select(g => g.Page).Distinct().OrderBy(g => g).ToList() });
+
+			_concordance = p.ToDictionary (x => x.Word, x => new Position { NumberOfUse = x.Count, Pages = x.Positions });
+		}
+
+		public override string ToString ()
+		{
+			return _converter.Convert (_concordance);
+		}
+	}
 
 
 }

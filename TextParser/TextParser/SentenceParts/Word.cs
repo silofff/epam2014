@@ -1,25 +1,22 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 
 namespace TextParser.SentenceParts
 {
-    public class Word : SentencePart
-    {
-        public Word(string value) :
-            base(value)
+    public class Word : ISentencePart
+	{
+	
+		public string Value
+		{
+			get;
+			private set;
+		}
+
+        public Word(string value)
         {
-            
+			Value = value;
         }
 
-        public int Position
+        public int Page
         {
             get;
             set;
@@ -32,7 +29,7 @@ namespace TextParser.SentenceParts
 
         public bool IsVowel()
         {
-            var match = Regex.Match(Value, @"^(A|E|I|O|U)", RegexOptions.IgnoreCase);
+            var match = Regex.Match(Value, @"^(A|E|I|O|U|Y)", RegexOptions.IgnoreCase);
             return match.Success;
         }
     }

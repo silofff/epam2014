@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace TextParser.Converters
 {
     class ConvertConcordanceToString : IConverter<string, IDictionary<string,Position>>
     {
-        private static readonly StringBuilder _sb = new StringBuilder();
+        private readonly StringBuilder _sb = new StringBuilder();
         private readonly IList<string> _alphabeth = new List<string>(); 
         public string Convert(IDictionary<string, Position> convertible)
         {
@@ -23,7 +21,7 @@ namespace TextParser.Converters
                    .Append("..........")
                    .Append(position.Value.NumberOfUse)
                    .Append(": ");
-                foreach (var pos in position.Value.Rows)
+                foreach (var pos in position.Value.Pages)
                 {
                     _sb.Append(pos.ToString())
                        .Append(" ");

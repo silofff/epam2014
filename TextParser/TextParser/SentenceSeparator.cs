@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 using TextParser.Converters;
 using TextParser.SentenceParts;
 
@@ -11,43 +6,43 @@ namespace TextParser
 {
     public class SentenceSeparator
     {
-        private readonly static FileReader FileReader = new FileReader();
-        private string _text;
+        private readonly FileReader _fileReader = new FileReader();
+        private string _rawText;
         private readonly Regex _regexSentence = new Regex(@"\w+[^.!?]*[.!?]*\n*", RegexOptions.IgnoreCase);
-        private readonly ReadyText _readyText = new ReadyText();
-        private readonly Regex _regexSpaces = new Regex(@"[ ]{2,}\t?");
-        private readonly static IConverter<string,ReadyText> Converter = new ConvertTextToString();
+        private readonly Text _text = new Text();
+		private readonly Regex _regexSpaces = new Regex(@"\s+");
+        private readonly IConverter<string,Text> _converter = new ConvertTextToString();
 
         public void Create(string fileName)
         {
-            _text = FileReader.ReadFile(fileName);
-            _text = _regexSpaces.Replace(_text, @" ");
-            var match = _regexSentence.Match(_text);
+            _rawText = _fileReader.ReadFile(fileName);
+            _rawText = _regexSpaces.Replace(_rawText, @" ");
+            var match = _regexSentence.Match(_rawText);
             while (match.Success)
             {
-                _readyText.Add(new Sentence().Create(match.Value));
+                _text.Add(new Sentence().Create(match.Value));
                 match = match.NextMatch();
             }
         }
 
         public void RemoveConsonant(int length)
         {
-            _readyText.RemoveConsonant(length);
+            _text.RemoveConsonant(length);
         }
 
         public void ReplaceWords(int length, string substring)
         {
-            _readyText.ReplaceWords(length, substring);
+            _text.ReplaceWords(length, substring);
         }
 
         public void Sort()
         {
-            _readyText.SortByWord();
+            _text.SortByWord();
         }
 
         public override string ToString()
         {
-            return Converter.Convert(_readyText);
+            return _converter.Convert(_text);
         }
     }
 }

@@ -3,18 +3,18 @@ using TextParser.SentenceParts;
 
 namespace TextParser.Converters
 {
-    class ConvertTextToString : IConverter<string, ReadyText>
+    class ConvertTextToString : IConverter<string, Text>
     {
-        private static readonly StringBuilder Sb = new StringBuilder();
+        private readonly StringBuilder _sb = new StringBuilder();
         private readonly ConvertSentenceToString _converter = new ConvertSentenceToString();
-        public string Convert(ReadyText convertible)
+        public string Convert(Text convertible)
         {
-            Sb.Clear();
+            _sb.Clear();
             foreach (var c in convertible)
             {
-                Sb.Append(_converter.Convert(c));
+                _sb.Append(_converter.Convert(c));
             }
-            return Sb.ToString();
+            return _sb.ToString();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace TextParser.SentenceParts
 {
@@ -22,9 +23,7 @@ namespace TextParser.SentenceParts
         {
             foreach (var sentence in _sentences)
             {
-                sentence.RemoveWords(sentence
-                                            .OfType<Word>()
-                                            .Where(x => x.Lenght() == length && !x.IsVowel())
+                sentence.RemoveWords(sentence.OfType<Word>().Where(x => x.Lenght() == length && !x.IsVowel())
                                             .ToList());
             }
         }
@@ -33,10 +32,8 @@ namespace TextParser.SentenceParts
         {
             foreach (var sentence in _sentences)
             {
-                sentence.ReplaceWords(sentence
-                                            .OfType<Word>()
-                                            .Where(x => x.Lenght() == length)
-                                            .ToList(), substring);
+                sentence.ReplaceWords(sentence.OfType<Word>().Where(x => x.Lenght() == length).ToList(),
+                    substring);
             }
         }
 

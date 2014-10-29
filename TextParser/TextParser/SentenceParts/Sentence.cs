@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using TextParser;
 
 namespace TextParser.SentenceParts
 {
     public class Sentence : IEnumerable<ISentencePart>
     {
-        private readonly IList<ISentencePart> _sentenceParts = new List<ISentencePart>();
+        private IList<ISentencePart> _sentenceParts = new List<ISentencePart>();
         private readonly Regex _regexWord = new Regex(@"\w+", RegexOptions.IgnoreCase);
         private readonly Regex _regexPunctuation = new Regex(@"[^\w\s]+\n*|\n", RegexOptions.IgnoreCase);
 		private readonly Regex _regexWhitespace = new Regex(@"[ ]", RegexOptions.IgnoreCase);
@@ -44,10 +45,9 @@ namespace TextParser.SentenceParts
 			words.ForEach (x => _sentenceParts.Remove (x));
         }
 
-
 		public void ReplaceWords(List<Word> words, string substring)
-        {
-			words.ForEach (x => _sentenceParts [_sentenceParts.IndexOf (x)] = new Word (substring));
+		{
+            words.ForEach(x => _sentenceParts = _sentenceParts.Replace(x, new Word(substring)).ToList());
         }
 
         public IEnumerator<ISentencePart> GetEnumerator()

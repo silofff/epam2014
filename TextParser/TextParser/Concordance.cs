@@ -30,9 +30,7 @@ namespace TextParser
 
 		public void GetConcordance ()
 		{
-			var p = _words
-						.GroupBy (x => x.Value)
-						.OrderBy (z => z.Key)
+			var p = _words.GroupBy(x => x.Value).OrderBy(z => z.Key)
 						.Select (z => new {	Word = z.Key, Count = z.Count (), Positions = z.Select(g => g.Page).Distinct().OrderBy(g => g).ToList() });
 
 			_concordance = p.ToDictionary (x => x.Word, x => new Position { NumberOfUse = x.Count, Pages = x.Positions });

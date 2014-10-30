@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using TextParser;
 
 namespace TextParser.SentenceParts
 {
@@ -45,9 +44,9 @@ namespace TextParser.SentenceParts
 			words.ForEach (x => _sentenceParts.Remove (x));
         }
 
-		public void ReplaceWords(List<Word> words, string substring)
+        public void ReplaceWords(List<Word> words, IEnumerable<ISentencePart> replacement)
 		{
-            words.ForEach(x => _sentenceParts = _sentenceParts.Replace(x, new Word(substring)).ToList());
+            words.ForEach(x => _sentenceParts = _sentenceParts.Replace(x, replacement).ToList());
         }
 
         public IEnumerator<ISentencePart> GetEnumerator()

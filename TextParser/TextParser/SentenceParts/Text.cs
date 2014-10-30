@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 
 namespace TextParser.SentenceParts
 {
@@ -30,10 +29,11 @@ namespace TextParser.SentenceParts
 
         public void ReplaceWords(int length, string substring)
         {
+            var replacement = new Sentence().Create(substring);
             foreach (var sentence in _sentences)
             {
                 sentence.ReplaceWords(sentence.OfType<Word>().Where(x => x.Lenght() == length).ToList(),
-                    substring);
+                    replacement);
             }
         }
 

@@ -35,7 +35,7 @@ namespace Concordance
                 richTextBoxOutput.Text += _concordance.ToString();
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Can't open file");
             }

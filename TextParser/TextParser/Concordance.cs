@@ -15,14 +15,14 @@ namespace TextParser
 		private readonly Regex _regexWord = new Regex (@"\w+", RegexOptions.IgnoreCase);
 		private IList<string> _text;
 
-		public void Create (string fileName, int pagePerRows)
+		public void Create (string fileName, int rowsPerPage)
 		{
 			_text = _fileReader.ReadRows (fileName);
 			foreach (var row in _text) {
 				var match = _regexWord.Match (row);
 				while (match.Success) {
-					if (pagePerRows <= 0) return;
-                    _words.Add (new Word (match.Value.ToLower ()){ Page = ((_text.IndexOf (row)) / pagePerRows) + 1 });
+					if (rowsPerPage <= 0) return;
+                    _words.Add (new Word (match.Value.ToLower ()){ Page = ((_text.IndexOf (row)) / rowsPerPage) + 1 });
 					match = match.NextMatch ();
 				}
 			}
@@ -31,7 +31,8 @@ namespace TextParser
 		public void GetConcordance ()
 		{
 			var p = _words.GroupBy(x => x.Value).OrderBy(z => z.Key)
-						.Select (z => new {	Word = z.Key, Count = z.Count (), Positions = z.Select(g => g.Page).Distinct().OrderBy(g => g).ToList() });
+						.Select (z => new {	Word = z.Key, Count = z.Count (), 
+                            Positions = z.Select(g => g.Page).Distinct().OrderBy(g => g).ToList() });
 
 			_concordance = p.ToDictionary (x => x.Word, x => new Position { NumberOfUse = x.Count, Pages = x.Positions });
 		}

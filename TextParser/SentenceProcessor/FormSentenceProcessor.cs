@@ -32,7 +32,7 @@ namespace SentenceProcessor
                 _sentenceSeparator.Create(fileName);
                 textBoxOutput.Text = _sentenceSeparator.ToString();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Can't open file");
             }

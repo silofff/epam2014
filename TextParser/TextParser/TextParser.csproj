@@ -39,9 +39,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileOpener.cs" />
+    <Compile Include="Concordance.cs" />
+    <Compile Include="Converters\ConvertConcordanceToString.cs" />
+    <Compile Include="Converters\ConvertSentenceToString.cs" />
+    <Compile Include="Converters\ConvertTextToString.cs" />
+    <Compile Include="FileReader.cs" />
+    <Compile Include="Converters\IConverter.cs" />
+    <Compile Include="Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Extention.cs" />
+    <Compile Include="SentenceParts\Punctuation.cs" />
+    <Compile Include="SentenceParts\Sentence.cs" />
+    <Compile Include="SentenceParts\Text.cs" />
+    <Compile Include="SentenceParts\Whitespace.cs" />
+    <Compile Include="SentenceParts\Word.cs" />
+    <Compile Include="SentenceSeparator.cs" />
+    <Compile Include="SentenceParts\ISentencePart.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

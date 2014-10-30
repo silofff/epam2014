@@ -1,0 +1,14 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="TextParser\Concordance.cs">
+    <Files>
+      <File FileName="TextParser\Concordance.cs" Line="106" Column="106" />
+      <File FileName="TextParser\Position.cs" Line="3" Column="3" />
+      <File FileName="Concordance\ConcordanceForm.cs" Line="64" Column="64" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

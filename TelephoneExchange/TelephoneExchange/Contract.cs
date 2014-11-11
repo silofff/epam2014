@@ -8,8 +8,8 @@ namespace TelephoneExchange
 {
     class Contract
     {
-        public Abonent Abonent { get; set; }
-        public Terminal Terminal { get; set; }
+        public string AbonentName { get; set; }
+        public int TerminalNumber { get; set; }
         public Tariff Tariff { get; set; }
     }
 }

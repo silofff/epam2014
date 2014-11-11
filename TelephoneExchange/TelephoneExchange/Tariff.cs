@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace TelephoneExchange
 {
-    class Tariff
+    struct Tariff
     {
-        public int MinuteCost { get; private set; }
+        public int MinuteCost;
 
         public Tariff(int cost)
         {

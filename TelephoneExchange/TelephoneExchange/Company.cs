@@ -9,25 +9,29 @@ namespace TelephoneExchange
     class Company
     {
         public string Name { get; set; }
-        public IList<Contract> Contracts = new List<Contract>();
-        public Stantion Stantion { get; set; }
+        private readonly IList<Contract> _contracts = new List<Contract>();
+        public Stantion CompanyStantion { get; set; }
+        public Dictionary<string, Tariff> Tariffs = new Dictionary<string, Tariff>(); 
 
-        public Company(string name, Stantion stantion)
+        public Company(string name, Stantion companyStantion)
         {
             Name = name;
-            Stantion = stantion;
+            CompanyStantion = companyStantion;
         }
 
-        public void Contract(Abonent abonent, Tariff tariff, int number)
+        public void Contract(Abonent abonent, string tariffName, int number)
         {
+            if (!Tariffs.ContainsKey(tariffName)) return;
+            var tariff = Tariffs[tariffName];
             var terminal = new Terminal(number);
-            var currentContract = new Contract() {Abonent = abonent, Tariff = tariff, Terminal = terminal};
-            Contracts.Add(currentContract);
+            var currentContract = new Contract() { AbonentName = abonent.Name, Tariff = tariff, TerminalNumber = terminal.TelephoneNumber };
+            _contracts.Add(currentContract);
             abonent.Contract = currentContract;
             abonent.Terminal = terminal;
-            abonent.StartCall += Stantion.StartConnection;
-            abonent.FinishCall += Stantion.FinishConnection;
-            Stantion.Ports.Add(new Port(){State = PortState.Enabled, Terminal = terminal});
+            abonent.StartCall += CompanyStantion.StartConnection;
+            abonent.FinishCall += CompanyStantion.FinishConnection;
+            CompanyStantion.Connect += abonent.Ring;
+            CompanyStantion.Ports.Add(new Port() { State = PortState.Enabled, Terminal = terminal });
         }
     }
 }

@@ -10,30 +10,31 @@ namespace TelephoneExchange
     {
         public IList<Port> Ports = new List<Port>();
 
-        public void StartConnection(object sender, CallArgs e)
+        public string StartConnection(CallData e)
         {
             var fromTerminal = Ports.FirstOrDefault(x => x.Terminal.TelephoneNumber.Equals(e.FromNumber));
             var toTerminal = Ports.FirstOrDefault(x => x.Terminal.TelephoneNumber.Equals(e.ToNumber));
             
             if (toTerminal == null)
             {
-                Console.WriteLine("Number {0} does not exist", e.ToNumber);
-            } 
-            else if (fromTerminal != null && (fromTerminal.State == PortState.Enabled &&
-                                              toTerminal.State == PortState.Enabled))
-            {
-                fromTerminal.State = PortState.Connected;
-                toTerminal.State = PortState.Connected;
-                Console.WriteLine("Number {0} connected with number {1}", e.FromNumber, e.ToNumber);
+                return String.Format("Number {0} does not exist", e.ToNumber);
+
             }
-            else
+            if (fromTerminal != null && (fromTerminal.State == PortState.Enabled &&
+                                         toTerminal.State == PortState.Enabled))
             {
-                Console.WriteLine("Can not connected to number {0} because it is {1}", e.ToNumber, 
-                    toTerminal.State);
+                if (OnConnect(new EventArgs()))
+                {
+                    fromTerminal.State = PortState.Connected;
+                    toTerminal.State = PortState.Connected;
+                    return String.Format("Number {0} connected with number {1}", e.FromNumber, e.ToNumber);
+                }
+                return String.Format("Number {0} can not talk with {1}", e.FromNumber, e.ToNumber);
             }
+            return String.Format("Can not connected to number {0}", e.ToNumber);
         }
 
-        public void FinishConnection(object sender, CallArgs e)
+        public string FinishConnection(CallData e)
         {
             var fromTerminal = Ports.FirstOrDefault(x => x.Terminal.TelephoneNumber.Equals(e.FromNumber));
             var toTerminal = Ports.FirstOrDefault(x => x.Terminal.TelephoneNumber.Equals(e.ToNumber));
@@ -43,10 +44,22 @@ namespace TelephoneExchange
             {
                 fromTerminal.State = PortState.Enabled;
                 toTerminal.State = PortState.Enabled;
-                Console.WriteLine("Call Finished");
+                return String.Format("Call Finished");
             }
-            
-            
+            return null;
         }
+
+        protected bool OnConnect(EventArgs e)
+        {
+            var temp = Connect;
+            if (temp != null)
+            {
+                return Connect(e);
+            }
+            return false;
+        }
+
+        public event Predicate<EventArgs> Connect;
+
     }
 }

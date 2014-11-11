@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TelephoneExchange
 {
@@ -12,36 +8,56 @@ namespace TelephoneExchange
         public Terminal Terminal { get; set; }
         public Contract Contract { get; set; }
 
-        public void Call(int number)
+        public string Call(int number)
         {
-            OnStartCall(this, new CallArgs(Terminal.TelephoneNumber, number));
+            return OnStartingCall(new CallData(Terminal.TelephoneNumber, number));
         }
 
-        public void Finish(int number)
+        public string Finish(int number)
         {
-            OnFinishCall(this, new CallArgs(Terminal.TelephoneNumber, number));
+            return OnFinishCall(new CallData(Terminal.TelephoneNumber, number));
         }
 
-        protected void OnStartCall(object sender, CallArgs e)
+        protected string OnStartingCall(CallData e)
         {
             var temp = StartCall;
+            var srt = String.Empty;
             if (temp != null)
             {
-                StartCall(sender, e);
+                srt = StartCall(e);
             }
+            return srt;
         }
 
-        protected void OnFinishCall(object sender, CallArgs e)
+        protected string OnFinishCall(CallData e)
         {
             var temp = FinishCall;
+            var srt = String.Empty;
             if (temp != null)
             {
-                FinishCall(sender, e);
+                srt = FinishCall(e);
             }
+            return srt;
         }
 
-        public event EventHandler<CallArgs> StartCall;
-        public event EventHandler<CallArgs> FinishCall;
+        protected bool OnPress(EventArgs e)
+        {
+            var temp = Press;
+            if (temp != null)
+            {
+                return Press(e);
+            }
+            return false;
+        }
+
+        public bool Ring(EventArgs e)
+        {
+            return OnPress(e);
+        }
+
+        public event Func<CallData, string> StartCall;
+        public event Func<CallData, string> FinishCall;
+        public event Predicate<EventArgs> Press;
 
     }
 }

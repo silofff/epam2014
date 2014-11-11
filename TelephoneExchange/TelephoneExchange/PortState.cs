@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace TelephoneExchange
 {
-    class PortState
+    public enum PortState
     {
+        Enabled,
+        Disabled,
+        Connected
     }
 }

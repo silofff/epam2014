@@ -8,5 +8,11 @@ namespace TelephoneExchange
 {
     class Tariff
     {
+        public int MinuteCost { get; private set; }
+
+        public Tariff(int cost)
+        {
+            MinuteCost = cost;
+        }
     }
 }

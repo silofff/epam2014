@@ -8,5 +8,11 @@ namespace TelephoneExchange
 {
     class Terminal
     {
+        public int TelephoneNumber { get; private set; }
+
+        public Terminal(int number)
+        {
+            TelephoneNumber = number;
+        }
     }
 }

@@ -40,24 +40,8 @@ namespace TelephoneExchange
             return srt;
         }
 
-        protected bool OnPress(EventArgs e)
-        {
-            var temp = Press;
-            if (temp != null)
-            {
-                return Press(e);
-            }
-            return false;
-        }
-
-        public bool Ring(EventArgs e)
-        {
-            return OnPress(e);
-        }
-
         public event Func<CallData, string> StartCall;
         public event Func<CallData, string> FinishCall;
-        public event Predicate<EventArgs> Press;
 
     }
 }

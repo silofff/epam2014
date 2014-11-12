@@ -9,18 +9,24 @@ namespace TelephoneExchange
     class Terminal
     {
         public int TelephoneNumber { get; private set; }
-        public enum TerminalState
-        {
-            YES,
-            NO
-        }
-
-        public TerminalState State;
 
         public Terminal(int number)
         {
             TelephoneNumber = number;
-            State = TerminalState.NO;
+        }
+
+        public event Func<bool> Ring;
+
+        public bool TelephoneRing()
+        {
+            return OnRing();
+        }
+
+        protected bool OnRing()
+        {
+            var handler = Ring;
+            if (handler != null) return handler();
+            return false;
         }
     }
 }

@@ -30,8 +30,16 @@ namespace TelephoneExchange
             abonent.Terminal = terminal;
             abonent.StartCall += CompanyStantion.StartConnection;
             abonent.FinishCall += CompanyStantion.FinishConnection;
-            CompanyStantion.Connect += abonent.Ring;
             CompanyStantion.Ports.Add(new Port() { State = PortState.Enabled, Terminal = terminal });
+        }
+
+        public void TerminateContract(Abonent abonent)
+        {
+            abonent.StartCall -= CompanyStantion.StartConnection;
+            abonent.FinishCall -= CompanyStantion.FinishConnection;
+            CompanyStantion.Ports.Remove(CompanyStantion.Ports.FirstOrDefault(x => x.Terminal.Equals(abonent.Terminal)));
+            abonent.Terminal = null;
+            abonent.Contract = null;
         }
     }
 }

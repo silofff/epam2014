@@ -23,7 +23,7 @@ namespace TelephoneExchange
             if (fromTerminal != null && (fromTerminal.State == PortState.Enabled &&
                                          toTerminal.State == PortState.Enabled))
             {
-                if (OnConnect(new EventArgs()))
+                if (toTerminal.Terminal.TelephoneRing())
                 {
                     fromTerminal.State = PortState.Connected;
                     toTerminal.State = PortState.Connected;
@@ -48,18 +48,6 @@ namespace TelephoneExchange
             }
             return null;
         }
-
-        protected bool OnConnect(EventArgs e)
-        {
-            var temp = Connect;
-            if (temp != null)
-            {
-                return Connect(e);
-            }
-            return false;
-        }
-
-        public event Predicate<EventArgs> Connect;
 
     }
 }

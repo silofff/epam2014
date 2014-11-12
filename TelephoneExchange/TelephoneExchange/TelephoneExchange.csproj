@@ -52,6 +52,7 @@
     <Compile Include="CallData.cs" />
     <Compile Include="Tariff.cs" />
     <Compile Include="Terminal.cs" />
+    <Compile Include="TestProgramm.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

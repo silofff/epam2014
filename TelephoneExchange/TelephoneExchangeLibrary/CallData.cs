@@ -1,6 +1,6 @@
-﻿namespace TelephoneExchange
+﻿namespace TelephoneExchangeLibrary
 {
-    class CallData
+    public class CallData
     {
         public int FromNumber { get; set; }
         public int ToNumber { get; set; }

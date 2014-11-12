@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{73665641-80F7-417F-A5F1-EDA63A9662A0}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{AEC74A1A-7192-4986-8902-8E1EE3246615}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TelephoneExchange</RootNamespace>
-    <AssemblyName>TelephoneExchange</AssemblyName>
+    <RootNamespace>TelephoneExchangeLibrary</RootNamespace>
+    <AssemblyName>TelephoneExchangeLibrary</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,18 +39,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Abonent.cs" />
+    <Compile Include="CallData.cs" />
+    <Compile Include="Company.cs" />
+    <Compile Include="Contract.cs" />
+    <Compile Include="Port.cs" />
+    <Compile Include="PortState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestProgramm.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TelephoneExchangeLibrary\TelephoneExchangeLibrary.csproj">
-      <Project>{aec74a1a-7192-4986-8902-8e1ee3246615}</Project>
-      <Name>TelephoneExchangeLibrary</Name>
-    </ProjectReference>
+    <Compile Include="LogRecord.cs" />
+    <Compile Include="Stantion.cs" />
+    <Compile Include="Tariff.cs" />
+    <Compile Include="Terminal.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace TelephoneExchange
+namespace TelephoneExchangeLibrary
 {
-    class Abonent
+    public class Abonent
     {
         public string Name { get; set; }
         public Terminal Terminal { get; set; }
@@ -10,7 +10,7 @@ namespace TelephoneExchange
 
         public string Call(int number)
         {
-            return OnStartingCall(new CallData(Terminal.TelephoneNumber, number));
+            return OnStartCall(new CallData(Terminal.TelephoneNumber, number));
         }
 
         public string Finish(int number)
@@ -18,10 +18,10 @@ namespace TelephoneExchange
             return OnFinishCall(new CallData(Terminal.TelephoneNumber, number));
         }
 
-        protected string OnStartingCall(CallData e)
+        protected string OnStartCall(CallData e)
         {
             var temp = StartCall;
-            var srt = String.Empty;
+            var srt = String.Format("{0}'s terminal deactivate", Name);
             if (temp != null)
             {
                 srt = StartCall(e);
@@ -32,7 +32,7 @@ namespace TelephoneExchange
         protected string OnFinishCall(CallData e)
         {
             var temp = FinishCall;
-            var srt = String.Empty;
+            var srt = String.Format("{0}'s terminal deactivate", Name);
             if (temp != null)
             {
                 srt = FinishCall(e);

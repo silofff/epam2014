@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace TelephoneExchange
+namespace TelephoneExchangeLibrary
 {
-    class Company
+    public class Company
     {
         public string Name { get; set; }
         private readonly IList<Contract> _contracts = new List<Contract>();
@@ -24,13 +21,13 @@ namespace TelephoneExchange
             if (!Tariffs.ContainsKey(tariffName)) return;
             var tariff = Tariffs[tariffName];
             var terminal = new Terminal(number);
-            var currentContract = new Contract() { AbonentName = abonent.Name, Tariff = tariff, TerminalNumber = terminal.TelephoneNumber };
+            var currentContract = new Contract { AbonentName = abonent.Name, Tariff = tariff, TerminalNumber = terminal.TelephoneNumber };
             _contracts.Add(currentContract);
             abonent.Contract = currentContract;
             abonent.Terminal = terminal;
             abonent.StartCall += CompanyStantion.StartConnection;
             abonent.FinishCall += CompanyStantion.FinishConnection;
-            CompanyStantion.Ports.Add(new Port() { State = PortState.Enabled, Terminal = terminal });
+            CompanyStantion.Ports.Add(new Port { State = PortState.Enabled, Terminal = terminal });
         }
 
         public void TerminateContract(Abonent abonent)
@@ -38,7 +35,6 @@ namespace TelephoneExchange
             abonent.StartCall -= CompanyStantion.StartConnection;
             abonent.FinishCall -= CompanyStantion.FinishConnection;
             CompanyStantion.Ports.Remove(CompanyStantion.Ports.FirstOrDefault(x => x.Terminal.Equals(abonent.Terminal)));
-            abonent.Terminal = null;
             abonent.Contract = null;
         }
     }

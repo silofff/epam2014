@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace TelephoneExchange
+namespace TelephoneExchangeLibrary
 {
-    class Terminal
+    public class Terminal
     {
         public int TelephoneNumber { get; private set; }
 

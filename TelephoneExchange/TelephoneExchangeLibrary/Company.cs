@@ -37,5 +37,19 @@ namespace TelephoneExchangeLibrary
             CompanyStantion.Ports.Remove(CompanyStantion.Ports.FirstOrDefault(x => x.Terminal.Equals(abonent.Terminal)));
             abonent.Contract = null;
         }
+
+        public IEnumerable<LogRecord> GetHistory(Abonent abonent)
+        {
+            var history = CompanyStantion.Log.Where(x => x.FromNumber.Equals(abonent.Terminal.TelephoneNumber));
+            history.ToList().ForEach(x => x.Price = GetPrice(x.StartTime, x.EndTime, abonent.Contract.Tariff.MinuteCost));
+            return history;
+        }
+
+        private int GetPrice(System.DateTime start, System.DateTime end, int tariff)
+        {
+            var temp = (start - end).Minutes;
+            if (temp == 0) temp = 1;
+            return temp * tariff;
+        }
     }
 }

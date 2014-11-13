@@ -45,9 +45,9 @@ namespace TelephoneExchange
             Console.WriteLine(a2.Finish(999));
 
             Console.WriteLine("Outcoming call's history of {0}", a1.Name);
-            WriteUserLog(stantion.Log, a1);
+            WriteUserLog(company.GetHistory(a1));
             Console.WriteLine("Outcoming call's history of {0}", a2.Name);
-            WriteUserLog(stantion.Log, a2);
+            WriteUserLog(company.GetHistory(a2));
 
             company.TerminateContract(a1);
             a1.Terminal.Ring -= PressKey;
@@ -57,24 +57,18 @@ namespace TelephoneExchange
             Console.ReadKey();
         }
 
-        private void WriteUserLog(IEnumerable<LogRecord> log, Abonent a)
+        private void WriteUserLog(IEnumerable<LogRecord> log)
         {
-            foreach (var record in log.Where(x => x.FromNumber.Equals(a.Terminal.TelephoneNumber)))
+            foreach (var record in log)
             {
                 Console.WriteLine("From {0} to {1} start at {2} end at {3} price {4}", record.FromNumber, record.ToNumber,
-                    record.StartTime, record.EndTime, GetPrice(record.StartTime, record.EndTime, a.Contract.Tariff.MinuteCost));
+                    record.StartTime, record.EndTime, record.Price);
             }
-        }
-
-        private int GetPrice(DateTime start, DateTime end, int tariff)
-        {
-            var temp = (start - end).Minutes;
-            if (temp == 0) temp = 1;
-            return temp*tariff;
         }
 
         private bool PressKey()
         {
+            Console.WriteLine("Type YES or NO: ");
             if (Console.ReadLine() == "YES")
                 return true;
             return false;

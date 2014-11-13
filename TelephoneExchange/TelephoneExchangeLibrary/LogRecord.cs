@@ -8,5 +8,6 @@ namespace TelephoneExchangeLibrary
         public DateTime EndTime { get; set; }
         public int FromNumber { get; set; }
         public int ToNumber { get; set; }
+        public int Price { get; set; }
     }
 }
